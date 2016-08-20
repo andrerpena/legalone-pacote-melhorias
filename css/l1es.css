@@ -1,3 +1,32 @@
+body {
+    background-color: #f5f5f5 !important;
+}
+
 .main-menu {
-    background-color: #808080 !important;
+    background-color: #afafaf !important;
+}
+
+.main-menu ul li.current > a {
+    border-radius: 0 !important;
+    font-weight: normal !important;
+    background-color: #f5f5f5 !important;
+}
+
+.document-header {
+    background: #f0f3f5 !important;
+    border-bottom: 1px solid #EEEEEE !important;
+}
+
+.submenu ul li.current a {
+    border-radius: 0 !important;
+    background-color: #e8e8e8 !important;
+}
+
+.document {
+    border: 1px solid #e2e2e2 !important;
+    box-shadow: 0 0 0 !important;
+}
+
+.search-list .webgrid tbody tr:not(.summary-table):not(.summary-table-item):hover {
+    background-color: #ececec !important;
 }
