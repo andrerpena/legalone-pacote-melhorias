@@ -55,7 +55,6 @@ body {
 .submenu ul li.current a {
     border-radius: 0 !important;
     background-color: #e8e8e8 !important;
-
 }
 
 .document {
@@ -87,4 +86,18 @@ body {
 
 .header .logo {
     margin: 10px 0 10px 10px !important;
+}
+
+/* floating action-bar */
+
+.footer {
+	position: fixed !important;
+    display: block !important;
+    height: 50px !important;
+    bottom: 0 !important;
+    padding: 10px 10px 0 10px !important;
+    margin-bottom: -10px !important;
+    background-color: #808080 !important;
+    color: black !important;
+    left: 255px !important;
 }

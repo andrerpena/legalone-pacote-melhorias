@@ -11,12 +11,14 @@ $(".main-bar")
             </div>`);
 
 Vue.component('vnav', {
-    template: `<ul>
-            <li v-for="menuItem in menu">
-                <a v-bind:href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
-                <vnav v-if="menuItem.menu" :menu="menuItem.menu"/>
-            </li>
-        </ul>`,
+    template: `<div class='vnav-children-wrapper'>
+                <div v-for="menuItem in menu" class='vnav-item-wrapper'>
+                    <div class='vnav-item'>
+                        <a v-bind:href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
+                    </div>
+                    <vnav v-if="menuItem.menu" :menu="menuItem.menu"/>
+                </div>
+            </div>`,
     props: {
         menu: Array,
     }

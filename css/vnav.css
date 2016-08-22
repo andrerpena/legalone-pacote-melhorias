@@ -9,7 +9,6 @@
 
 #vnav-container {
     border: 1px solid rgb(226, 226, 226);
-    padding-bottom: 10px;
 }
 
 #vnav-container .search-wrapper {
@@ -17,28 +16,46 @@
     padding: 6px 7px;
 }
 
-#vnav-container ul li {
-    background-color: #fff;
-    padding: 3px 3px 3px 6px;
-    border-width: 1px 0 0 1px;
-    border-style: solid;
-    border-color: #ddd;
+.children-wrapper {
+    background: #F0F3F5;
 }
 
-#vnav-container ul li a {
+.vnav-children-wrapper {
+    background-color: rgb(240, 243, 245);
 }
 
-.vnav-link {
-    padding: 6px 16px 6px 0 !important ;
-    display: block;
+.vnav-children-wrapper .vnav-children-wrapper {
+  padding-left: 10px;
 }
 
-#vnav-container ul {
+.vnav-item {
+  background-color: white;
+  padding: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(226, 226, 226);
+  cursor: pointer;
+  margin-left: -1px;
+  margin-top: -1px;
+  margin-right: -1px;
+  margin-left: -1px;
 
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-#vnav-container ul li a {
-    color: #396497 !important;
+.vnav-item-text.with-icon {
+  margin-left: 10px;
 }
 
+.vnav-icon {
+}
 
+.vnav-item .plus-wrapper {
+  margin-top: 3px;
+  float: right;
+}
