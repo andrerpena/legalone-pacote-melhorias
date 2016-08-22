@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "LegalOne - Pacote de melhorias (não-oficial)",
   "description": "Pacote de melhorias para o LegalOne feito pela comunidade. Esta extensão não possui nenhuma ligação com a Thomson Reuters",
-  "version": "1.2",
+  "version": "1.3",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
@@ -15,6 +15,8 @@
       "js": [
         "./scripts/third-party/jquery-3.1.0.min.js",
         "./scripts/third-party/vue.min.js",
+        "./scripts/lib/clone.js",
+        "./menu/menu.js",
         "main.entry.js"
       ],
       "css": [
