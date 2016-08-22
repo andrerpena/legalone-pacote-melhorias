@@ -13,11 +13,13 @@
         "*://*.novajus.com.br/*"
       ],
       "js": [
-        "jquery-3.1.0.min.js",
+        "./scripts/third-party/jquery-3.1.0.min.js",
+        "./scripts/third-party/vue.min.js",
         "main.entry.js"
       ],
       "css": [
-        "./css/l1es.css"
+        "./css/l1es.css",
+        "./css/vnav.css"
       ],
       "run_at": "document_end"
     }

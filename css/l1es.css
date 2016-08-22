@@ -1,15 +1,50 @@
 body {
-    background-color: #f5f5f5 !important;
+    background-color: white !important;
 }
 
+.header {
+    overflow: visible !important;
+}
+
+.main {
+    z-index: 1 !important;
+    position: relative;
+}
+
+.main-bar {
+    margin-left: 232px !important;
+}
+
+.main-bar-header {
+    display: none !important;
+}
+
+
 .main-menu {
-    background-color: #afafaf !important;
+    background-color: white !important;
+    padding-bottom: 0 !important;
+    display: none !important;
+}
+
+.main-menu ul li {
+    position: relative;
+    top:1px;
+    z-index: 1000;
+    white-space: nowrap !important; // stop the wrapping in the first place
+}
+
+.main-menu ul li > a
+{
+    color: gray !important;
 }
 
 .main-menu ul li.current > a {
     border-radius: 0 !important;
     font-weight: normal !important;
     background-color: #f5f5f5 !important;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #e2e2e2;
 }
 
 .document-header {
@@ -20,6 +55,7 @@ body {
 .submenu ul li.current a {
     border-radius: 0 !important;
     background-color: #e8e8e8 !important;
+
 }
 
 .document {
@@ -29,4 +65,26 @@ body {
 
 .search-list .webgrid tbody tr:not(.summary-table):not(.summary-table-item):hover {
     background-color: #ececec !important;
+}
+
+.side-bar-right {
+    margin-top: 0 !important;
+}
+
+.side-bar-left {
+    float: left;
+    width: 220px;
+    padding: 0 6px;
+
+}
+
+#global-search-input {
+    border-radius: 0 !important;
+}
+.global-search-wrapper {
+    margin: 10px 32px 15px 5px !important;
+}
+
+.header .logo {
+    margin: 10px 0 10px 10px !important;
 }
