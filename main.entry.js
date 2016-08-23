@@ -10,29 +10,6 @@ $(".main-bar")
                 </div>
             </div>`);
 
-
-Vue.component('vnavItem', {
-    template: `
-    <div class='vnav-item'>
-                        <i v-show="menuItem.menu && menuItem.menu.length" class="vnav-icon fa fa-folder-o" ></i>
-                        <i v-show="menuItem.icon" class="vnav-icon fa fa-{{menuItem.icon}}" ></i>
-                        <span class="vnav-item-text with-icon" >
-                            <a v-bind:href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
-                        </span>
-                        <span v-if="menuItem.menu && menuItem.menu.length" class="plus-wrapper" v-on:click="toggle" >
-                            <i class="vnav-icon fa fa-minus"  >{{menuItem.collapsed}}</i>
-                        </span>
-                    </div>
-    `,
-    props: {
-        menuItem: Object
-    },
-    methods: {
-        toggle: function(menuItem) {
-        }
-    }
-})
-
 Vue.component('vnav', {
     template: `<div class='vnav-children-wrapper'>
                 <div v-for="menuItem in menu" class='vnav-item-wrapper'>
