@@ -2,6 +2,7 @@ window._menu = [
     {
         displayName: 'Contatos',
         url: '/contatos',
+        icon: 'user',
         menu: [
             {
                 displayName: 'Painel',
@@ -30,6 +31,7 @@ window._menu = [
     {
         displayName: 'Agenda',
         url: '/agenda/compromissotarefa',
+        icon: 'calendar-o',
         menu: [
             {
                 displayName: 'Painel',
@@ -56,6 +58,7 @@ window._menu = [
     {
         displayName: 'Processos',
         url: '/processos',
+        icon: 'legal',
         menu: [
             {
                 displayName: 'Painel',
@@ -81,6 +84,7 @@ window._menu = [
     },
     {
         displayName: 'Serviços',
+        icon: 'tasks',
         menu: [
             {
                 displayName: 'Painel',
@@ -129,6 +133,7 @@ window._menu = [
     {
         displayName: 'Financeiro',
         url: '/financeiro/obrigacoes/Search',
+        icon: 'dollar',
         menu: [
             {
                 displayName: 'Painel',
@@ -175,7 +180,7 @@ window._menu = [
     {
         displayName: 'Faturamento',
         url: '/faturamento/itemfaturavel/search',
-        icon: 'money',
+        icon: 'dollar',
         menu: [
             {
                 displayName: 'Painel',
@@ -185,17 +190,17 @@ window._menu = [
             {
                 displayName: 'Itens faturáveis',
                 url: '/faturamento/itemfaturavel/search',
-                icon: 'money',
+                icon: 'dollar',
             },
             {
                 displayName: 'Emissão',
                 url: '/faturamento/emissao/search',
-                icon: 'money',
+                icon: 'dollar',
             },
             {
                 displayName: 'Emitidas',
                 url: '/faturamento/emitida/search',
-                icon: 'money',
+                icon: 'dollar',
             },
             {
                 displayName: 'Relatórios',
@@ -207,7 +212,7 @@ window._menu = [
     {
         displayName: 'Boletos',
         url: '/boletos',
-        icon: 'money',
+        icon: 'dollar',
         menu: [
             {
                 displayName: 'Painel',
@@ -217,17 +222,17 @@ window._menu = [
             {
                 displayName: 'Emissão',
                 url: '/boletos',
-                icon: 'money',
+                icon: 'dollar',
             },
             {
                 displayName: 'Emitidos',
                 url: '/boletos/Emitidos',
-                icon: 'money',
+                icon: 'dollar',
             },
             {
                 displayName: 'Conciliação',
                 url: '/boletos/ConciliacaoBoleto',
-                icon: 'money',
+                icon: 'dollar',
             },
             {
                 displayName: 'Relatórios',
@@ -266,6 +271,7 @@ window._menu = [
     {
         displayName: 'Acervo jurídico',
         url: '/acervojuridico/acervojuridico/search',
+        icon: 'newspaper-o',
         menu: [
             {
                 displayName: 'Revista dos Tribunais Online',
@@ -303,11 +309,13 @@ window._menu = [
     },
     {
         displayName: 'Workflow',
-        url: 'https://workflow.novajus.com.br/'
+        url: 'https://workflow.novajus.com.br/',
+        icon: 'superscript',
     },
     {
         displayName: 'Mesas de trabalho',
-        url: '/MesasTrabalho'
+        url: '/MesasTrabalho',
+        icon: 'star-o'
     },
     {
         displayName: 'Opções',

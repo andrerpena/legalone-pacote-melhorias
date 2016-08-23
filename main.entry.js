@@ -14,7 +14,6 @@ Vue.component('vnav', {
     template: `<div class='vnav-children-wrapper'>
                 <div v-for="menuItem in menu" class='vnav-item-wrapper'>
                     <div class='vnav-item'>
-                        <i v-show="menuItem.menu && menuItem.menu.length" class="vnav-icon fa fa-folder-o" ></i>
                         <i v-show="menuItem.icon" class="vnav-icon fa fa-{{menuItem.icon}}" ></i>
                         <span class="vnav-item-text with-icon" >
                             <a v-bind:href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
@@ -40,7 +39,7 @@ new Vue({
     el: '#vnav-container',
     data: function() {
         var menuItems = window._clone(window._menu);
-        this.updateCollapsedState(menuItems, false);
+        this.updateCollapsedState(menuItems, true);
 
         return {
             searchTerm: '',
@@ -55,11 +54,11 @@ new Vue({
             
             if(Array.isArray(menuItem)) {
                 for(var i = 0; i < menuItem.length; i++)
-                    this.updateCollapsedState(menuItem[i]);
+                    this.updateCollapsedState(menuItem[i], collapsedState);
             }
             else {
                 menuItem.collapsed = collapsedState;
-                this.updateCollapsedState(menuItem.menu);
+                this.updateCollapsedState(menuItem.menu, collapsedState);
             }
         },
         filterMenuItems: function (menuItems, term) {
@@ -86,7 +85,7 @@ new Vue({
         },
         search: function () {
             var menuItems = window._clone(window._menu);
-            this.updateCollapsedState(menuItems, false);
+            this.updateCollapsedState(menuItems, !this.searchTerm);
 
             this.menu = this.filterMenuItems(menuItems, this.searchTerm)
         }
