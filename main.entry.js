@@ -19,23 +19,49 @@ Vue.component('vnav', {
                         <span class="vnav-item-text with-icon" >
                             <a v-bind:href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
                         </span>
-                        <span v-if="menuItem.menu && menuItem.menu.length" class="plus-wrapper" v-on:click="toggle" >
-                            <i class="vnav-icon fa fa-minus"  >{{menuItem.collapsed}}</i>
+                        <span v-if="menuItem.menu && menuItem.menu.length" class="plus-wrapper" v-on:click="toggle(menuItem)" >
+                            <i class="vnav-icon fa" v-bind:class="menuItem.collapsed ? 'fa-plus' : 'fa-minus'" ></i>
                         </span>
                     </div>
-                    <vnav v-if="!collapsed" :menu="menuItem.menu"/>
+                    <vnav v-if="!menuItem.collapsed" :menu="menuItem.menu"/>
                 </div>
             </div>`,
     props: {
         menu: Array
+    },
+    methods: {
+        toggle: function(menuItem) {            
+            menuItem.collapsed = !menuItem.collapsed;
+        }
     }
 });
 
 new Vue({
     el: '#vnav-container',
-    data: {
-        searchTerm: '',
-        menu: window._clone(window._menu)
+    data: function() {
+
+        // recursively set every menu item to expanded state (collapsed = false)
+        var updateCollapsedState = function(menuItem) {
+            if(!menuItem)
+                return;
+            
+            if(Array.isArray(menuItem)) {
+                for(var i = 0; i < menuItem.length; i++)
+                    updateCollapsedState(menuItem[i]);
+            }
+            else {
+                menuItem.collapsed = false;
+                updateCollapsedState(menuItem.menu);
+            }
+        };
+
+        var menuItems = window._clone(window._menu);
+        updateCollapsedState(menuItems);
+
+        return {
+            searchTerm: '',
+            menu: menuItems
+        }
     },
     methods: {
         filterMenuItems: function (menuItems, term) {
