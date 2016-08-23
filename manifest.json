@@ -20,6 +20,7 @@
         "main.entry.js"
       ],
       "css": [
+        "./css/third-party/fa/css/font-awesome.min.css",
         "./css/l1es.css",
         "./css/vnav.css"
       ],

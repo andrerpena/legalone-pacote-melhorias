@@ -14,7 +14,14 @@ Vue.component('vnav', {
     template: `<div class='vnav-children-wrapper'>
                 <div v-for="menuItem in menu" class='vnav-item-wrapper'>
                     <div class='vnav-item'>
-                        <a v-bind:href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
+                        <i v-show="menuItem.menu && menuItem.menu.length" class="vnav-icon fa fa-folder-o" ></i>
+                        <i v-show="menuItem.icon" class="vnav-icon fa fa-{{menuItem.icon}}" ></i>
+                        <span class="vnav-item-text with-icon" >
+                            <a v-bind:href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
+                        </span>
+                        <span v-if="menuItem.menu && menuItem.menu.length" class="plus-wrapper"  >
+                            <i class="vnav-icon fa fa-minus"></i>
+                        </span>
                     </div>
                     <vnav v-if="menuItem.menu" :menu="menuItem.menu"/>
                 </div>

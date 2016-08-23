@@ -6,20 +6,24 @@ window._menu = [
             {
                 displayName: 'Painel',
                 url: '/contatos',
+                icon: 'bar-chart',
                 menu: [
                     {
                         displayName: 'Alterar painel',
-                        url: '/config/widgets/edit/contatos?returnUrl=%2Fcontatos'
+                        url: '/config/widgets/edit/contatos?returnUrl=%2Fcontatos',
+                        icon: 'pencil'
                     }
                 ]
             },
             {
                 displayName: 'Contatos',
-                url: '/contatos/contatos/search'
+                url: '/contatos/contatos/search',
+                icon: 'user'
             },
             {
                 displayName: 'Relatórios',
-                url: '/contatos/reportcontatos'
+                url: '/contatos/reportcontatos',
+                icon: 'pie-chart'
             }
         ]
     },
@@ -29,19 +33,23 @@ window._menu = [
         menu: [
             {
                 displayName: 'Painel',
-                url: '/agenda'
+                url: '/agenda',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Compromissos e tarefas',
-                url: '/agenda/compromissotarefa'
+                url: '/agenda/compromissotarefa',
+                icon: 'calendar-o'
             },
             {
                 displayName: 'Agenda do escritório',
-                url: '/agenda/AgendaEscritorio'
+                url: '/agenda/AgendaEscritorio',
+                icon: 'calendar-o'
             },
             {
                 displayName: 'Relatórios',
-                url: '/agenda/reportagenda'
+                url: '/agenda/reportagenda',
+                icon: 'pie-chart'
             }
         ]
     },
@@ -51,19 +59,23 @@ window._menu = [
         menu: [
             {
                 displayName: 'Painel',
-                url: '/processos'
+                url: '/processos',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Pastas',
-                url: '/processos/processos/search'
+                url: '/processos/processos/search',
+                icon: 'legal'
             },
             {
                 displayName: 'Casos',
-                url: '/processos/casos'
+                url: '/processos/casos',
+                icon: 'legal'
             },
             {
                 displayName: 'Relatórios',
-                url: '/processos/reportprocessos'
+                url: '/processos/reportprocessos',
+                icon: 'pie-chart'
             }
         ]
     },
@@ -72,37 +84,45 @@ window._menu = [
         menu: [
             {
                 displayName: 'Painel',
-                url: '/servicos'
+                url: '/servicos',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Pastas',
-                url: '/servicos/servicos/search'
+                url: '/servicos/servicos/search',
+                icon: 'folder'
             },
             {
                 displayName: 'Relatórios',
-                url: '/servicos/reportservicos'
+                url: '/servicos/reportservicos',
+                icon: 'pie-chart'
             }
         ]
     },
     {
         displayName: 'Contratos',
         url: '/contratos/contratocliente',
+        icon: 'file-word-o',
         menu: [
             {
                 displayName: 'Painel',
-                url: '/contratos'
+                url: '/contratos',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Contratos de cliente',
-                url: '/contratos/contratocliente'
+                url: '/contratos/contratocliente',
+                icon: 'file-word-o',
             },
             {
                 displayName: 'Contratos de honorário',
-                url: '/contratos/contratos'
+                url: '/contratos/contratos',
+                icon: 'file-word-o',
             },
             {
                 displayName: 'Relatórios',
-                url: '/contratos/reportcontratos'
+                url: '/contratos/reportcontratos',
+                icon: 'pie-chart'
             }
         ]
     },
@@ -112,109 +132,134 @@ window._menu = [
         menu: [
             {
                 displayName: 'Painel',
-                url: '/financeiro'
+                url: '/financeiro',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Contas a pagar e receber',
-                url: '/financeiro/obrigacoes/Search'
+                url: '/financeiro/obrigacoes/Search',
+                icon: 'dollar'
             },
             {
                 displayName: 'Fluxo de caixa',
-                url: '/financeiro/movimentos/search'
+                url: '/financeiro/movimentos/search',
+                icon: 'dollar'
             },
             {
                 displayName: 'Inadimplência',
-                url: '/financeiro/Inadimplencias/search'
+                url: '/financeiro/Inadimplencias/search',
+                icon: 'dollar'
             },
             {
                 displayName: 'Solicitações',
-                url: '/financeiro/Solicitacoes/search'
+                url: '/financeiro/Solicitacoes/search',
+                icon: 'dollar'
             },
             {
                 displayName: 'Conciliação',
-                url: '/financeiro/Conciliacao/search'
+                url: '/financeiro/Conciliacao/search',
+                icon: 'dollar'
             },
             {
                 displayName: 'Análises',
-                url: '/financeiro/analises'
+                url: '/financeiro/analises',
+                icon: 'area-chart'
             },
             {
                 displayName: 'Relatórios',
-                url: '/financeiro/ReportFinanceiro'
+                url: '/financeiro/ReportFinanceiro',
+                icon: 'pie-chart'
             }
         ]
     },
     {
         displayName: 'Faturamento',
         url: '/faturamento/itemfaturavel/search',
+        icon: 'money',
         menu: [
             {
                 displayName: 'Painel',
-                url: '/faturamento/HomeFaturamento/Index'
+                url: '/faturamento/HomeFaturamento/Index',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Itens faturáveis',
-                url: '/faturamento/itemfaturavel/search'
+                url: '/faturamento/itemfaturavel/search',
+                icon: 'money',
             },
             {
                 displayName: 'Emissão',
-                url: '/faturamento/emissao/search'
+                url: '/faturamento/emissao/search',
+                icon: 'money',
             },
             {
                 displayName: 'Emitidas',
-                url: '/faturamento/emitida/search'
+                url: '/faturamento/emitida/search',
+                icon: 'money',
             },
             {
                 displayName: 'Relatórios',
-                url: '/faturamento/ReportFaturamento/index'
+                url: '/faturamento/ReportFaturamento/index',
+                icon: 'pie-chart'
             }
         ]
     },
     {
         displayName: 'Boletos',
         url: '/boletos',
+        icon: 'money',
         menu: [
             {
                 displayName: 'Painel',
-                url: '/boletos/HomeBoleto/Index'
+                url: '/boletos/HomeBoleto/Index',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Emissão',
-                url: '/boletos'
+                url: '/boletos',
+                icon: 'money',
             },
             {
                 displayName: 'Emitidos',
-                url: '/boletos/Emitidos'
+                url: '/boletos/Emitidos',
+                icon: 'money',
             },
             {
                 displayName: 'Conciliação',
-                url: '/boletos/ConciliacaoBoleto'
+                url: '/boletos/ConciliacaoBoleto',
+                icon: 'money',
             },
             {
                 displayName: 'Relatórios',
-                url: '/boletos/ReportBoleto/index'
+                url: '/boletos/ReportBoleto/index',
+                icon: 'pie-chart'
             }
         ]
     },
     {
         displayName: 'GED',
         url: '/GED/HomeGED',
+        icon: 'file-pdf-o',
         menu: [
             {
                 displayName: 'Painel',
-                url: '/GED/HomeGED'
+                url: '/GED/HomeGED',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Arquivos',
-                url: '/GED/GEDArquivos/Search'
+                url: '/GED/GEDArquivos/Search',
+                icon: 'file-pdf-o',
             },
             {
                 displayName: 'Gerador de documentos',
-                url: '/GED/GeradorDocumentos/Search'
+                url: '/GED/GeradorDocumentos/Search',
+                icon: 'file-pdf-o',
             },
             {
                 displayName: 'Relatórios',
-                url: '/GED/ReportGED'
+                url: '/GED/ReportGED',
+                icon: 'pie-chart'
             }
         ]
     },
@@ -224,29 +269,35 @@ window._menu = [
         menu: [
             {
                 displayName: 'Revista dos Tribunais Online',
-                url: '/acervojuridico/acervojuridico/search'
+                url: '/acervojuridico/acervojuridico/search',
+                icon: 'newspaper-o'
             }
         ]
     },
     {
         displayName: 'Time Sheet',
         url: '/TimeSheet/HorasTrabalhadas/Search',
+        icon: 'clock-o',
         menu: [
             {
                 displayName: 'Painel',
-                url: '/TimeSheet/HomeTimeSheet'
+                url: '/TimeSheet/HomeTimeSheet',
+                icon: 'bar-chart',
             },
             {
                 displayName: 'Horas trabalhadas',
-                url: '/TimeSheet/HorasTrabalhadas/Search'
+                url: '/TimeSheet/HorasTrabalhadas/Search',
+                icon: 'clock-o',
             },
             {
                 displayName: 'Análises',
-                url: '/TimeSheet/analises'
+                url: '/TimeSheet/analises',
+                icon: 'area-chart'
             },
             {
                 displayName: 'Relatórios',
-                url: '/TimeSheet/ReportTimeSheet'
+                url: '/TimeSheet/ReportTimeSheet',
+                icon: 'pie-chart'
             }
         ]
     },
@@ -261,26 +312,32 @@ window._menu = [
     {
         displayName: 'Opções',
         url: '/config/ferramentas',
+        icon: 'cogs',
         menu: [
             {
                 displayName: 'Ferramentas',
-                url: '/config/ferramentas'
+                url: '/config/ferramentas',
+                icon: 'wrench',
             },
             {
                 displayName: 'Configurações',
-                url: '/config/configuracoes'
+                url: '/config/configuracoes',
+                icon: 'cog',
             },
             {
                 displayName: 'Tabelas de sistema',
-                url: '/config/TabelasSistema'
+                url: '/config/TabelasSistema',
+                icon: 'table'
             },
             {
                 displayName: 'Controle de acesso',
-                url: '/config/CA'
+                url: '/config/CA',
+                icon: 'lock'
             },
             {
                 displayName: 'Usuários',
-                url: '/config/usuarios'
+                url: '/config/usuarios',
+                icon: 'user'
             },
             {
                 displayName: 'Escritórios associados',
@@ -288,19 +345,23 @@ window._menu = [
             },
             {
                 displayName: 'Personalizações',
-                url: '/Personalizacoes/Modulos/Search'
+                url: '/Personalizacoes/Modulos/Search',
+                icon: 'puzzle-piece'
             },
             {
                 displayName: 'Listas em Excel',
-                url: '/config/reportconfig/search'
+                url: '/config/reportconfig/search',
+                icon: 'file-excel-o'
             },
             {
                 displayName: 'Manuais',
-                url: '/config/Manuais'
+                url: '/config/Manuais',
+                icon: 'file-pdf-o'
             },
             {
                 displayName: 'Sobre',
-                url: '/config/Sobre'
+                url: '/config/Sobre',
+                icon: 'question-circle'
             }
         ]
     }
