@@ -39,24 +39,8 @@ Vue.component('vnav', {
 new Vue({
     el: '#vnav-container',
     data: function() {
-
-        // recursively set every menu item to expanded state (collapsed = false)
-        var updateCollapsedState = function(menuItem) {
-            if(!menuItem)
-                return;
-            
-            if(Array.isArray(menuItem)) {
-                for(var i = 0; i < menuItem.length; i++)
-                    updateCollapsedState(menuItem[i]);
-            }
-            else {
-                menuItem.collapsed = false;
-                updateCollapsedState(menuItem.menu);
-            }
-        };
-
         var menuItems = window._clone(window._menu);
-        updateCollapsedState(menuItems);
+        this.updateCollapsedState(menuItems, false);
 
         return {
             searchTerm: '',
@@ -64,6 +48,20 @@ new Vue({
         }
     },
     methods: {
+        // recursively set every menu item to expanded state (collapsed = false)
+        updateCollapsedState: function(menuItem, collapsedState) {
+            if(!menuItem)
+                return;
+            
+            if(Array.isArray(menuItem)) {
+                for(var i = 0; i < menuItem.length; i++)
+                    this.updateCollapsedState(menuItem[i]);
+            }
+            else {
+                menuItem.collapsed = collapsedState;
+                this.updateCollapsedState(menuItem.menu);
+            }
+        },
         filterMenuItems: function (menuItems, term) {
             var result = [];
             for (var i = 0; i < menuItems.length; i++) {
@@ -87,7 +85,10 @@ new Vue({
             return null;
         },
         search: function () {
-            this.menu = this.filterMenuItems(window._clone(window._menu), this.searchTerm)
+            var menuItems = window._clone(window._menu);
+            this.updateCollapsedState(menuItems, false);
+
+            this.menu = this.filterMenuItems(menuItems, this.searchTerm)
         }
     }
 });
