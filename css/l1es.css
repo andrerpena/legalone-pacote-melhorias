@@ -90,6 +90,10 @@ body {
 
 /* floating action-bar */
 
+.document {
+    margin-bottom: 50px;
+}
+
 .document .footer {
 	position: fixed !important;
     display: block !important;
@@ -104,4 +108,8 @@ body {
 .document .footer label {
     color: white !important;
     font-weight: normal !important;
+}
+
+.hide-side-bar {
+    border-radius: 0 !important;
 }
