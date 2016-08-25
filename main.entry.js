@@ -13,7 +13,7 @@ $(".main-bar")
 Vue.component('vnav', {
     template: `<div class='vnav-children-wrapper'>
                 <div v-for="menuItem in menu" class='vnav-item-wrapper'>
-                    <div class='vnav-item'>
+                    <div class='vnav-item' data-val-displayNameFull='{{menuItem.displayNameFull}}'>
                         <i v-show="menuItem.icon" class="vnav-icon fa fa-{{menuItem.icon}}" ></i>
                         <span class="vnav-item-text with-icon" >
                             <a v-bind:href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
@@ -71,9 +71,8 @@ new Vue({
             return result;
         },
         filterMenuItem: function (menuItem, term) {
-            if (menuItem.displayName.match(new RegExp(term, 'i'))) {
+            if(window._isContainedIn(term, menuItem.displayNameFull))
                 return menuItem;
-            }
             else if (menuItem.menu) {
                 var filteredChildren = this.filterMenuItems(menuItem.menu, term);
                 if (filteredChildren.length) {
