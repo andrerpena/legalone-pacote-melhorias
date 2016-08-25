@@ -26,7 +26,7 @@ O LPM atualmente só é compatível com o Novajus, rodando o Chrome.
 
 ## Sugerindo uma nova funcionalidade
 
-Para sugerir uma funcionalidade, é necessário ter uma [conta no GitHub](https://github.com) e [cadastrar uma issue aqui](https://github.com).
+Para sugerir uma funcionalidade, é necessário ter uma [conta no GitHub](https://github.com) e [cadastrar uma issue aqui](https://github.com/andrerpena/legalone-pacote-melhorias/issues/new).
 
 ## Licença e termos de uso
 
