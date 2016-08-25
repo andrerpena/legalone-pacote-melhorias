@@ -39,3 +39,7 @@ Contribuições são bem vindas. É só fazer um pull-request :).
 ## Autor
 
 Feito com :heart: por André Pena.
+
+Outros contribuidores:
+
+- Israel Valverde
