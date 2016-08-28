@@ -1,0 +1,28 @@
+{
+  "name": "legalone-pacote-melhorias",
+  "version": "1.0.0",
+  "description": "A adiciona funcionalidades e melhora a usabilidade do LegalOne. Esta é uma ferramenta open-source desenvolvida pela comunidade e não possui ligação com a funcionalidade com a Thomson Reuters</b>.",
+  "main": "main.entry.js",
+  "scripts": {
+    "build": "webpack",
+    "run": "webpack-dev-server --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrerpena/legalone-pacote-melhorias.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrerpena/legalone-pacote-melhorias/issues"
+  },
+  "homepage": "https://github.com/andrerpena/legalone-pacote-melhorias#readme",
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "vue": "^1.0.26"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
+  }
+}

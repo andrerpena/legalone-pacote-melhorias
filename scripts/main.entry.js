@@ -1,3 +1,9 @@
+var $ = require("jquery");
+var Vue = require("vue");
+var menu = require("./menu/menu")();
+var clone = require("./lib/clone");
+var searchUtils = require("./lib/searchUtils");
+
 $(".main-bar")
     .before(`<div class='side-bar side-bar-left'>
                 <div id='vnav-container'>
@@ -38,7 +44,7 @@ Vue.component('vnav', {
 new Vue({
     el: '#vnav-container',
     data: function() {
-        var menuItems = window._clone(window._menu);
+        var menuItems = clone(menu);
         this.updateCollapsedState(menuItems, true);
 
         return {
@@ -71,7 +77,7 @@ new Vue({
             return result;
         },
         filterMenuItem: function (menuItem, term) {
-            if(window._isContainedIn(term, menuItem.displayNameFull))
+            if(searchUtils.isContainedIn(term, menuItem.displayNameFull))
                 return menuItem;
             else if (menuItem.menu) {
                 var filteredChildren = this.filterMenuItems(menuItem.menu, term);
@@ -83,7 +89,7 @@ new Vue({
             return null;
         },
         search: function () {
-            var menuItems = window._clone(window._menu);
+            var menuItems = clone(menu);
             this.updateCollapsedState(menuItems, !this.searchTerm);
 
             this.menu = this.filterMenuItems(menuItems, this.searchTerm)
