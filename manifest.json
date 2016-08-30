@@ -13,12 +13,9 @@
         "*://*.novajus.com.br/*"
       ],
       "js": [
-        "./scripts/third-party/jquery-3.1.0.min.js",
-        "./scripts/third-party/vue.min.js",
-        "./scripts/lib/clone.js",
-        "./scripts/lib/searchUtils.js",
-        "./menu/menu.js",
-        "main.entry.js"
+        "./node_modules/jquery/dist/jquery.min.js",
+        "./node_modules/vue/dist/vue.min.js",
+        "./dist/bundle.js"
       ],
       "css": [
         "./css/third-party/fa/css/font-awesome.min.css",
