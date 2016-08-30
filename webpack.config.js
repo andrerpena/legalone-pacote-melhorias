@@ -1,8 +1,10 @@
+var webpack = require('webpack');
+
 module.exports = {
     entry: "./scripts/main.entry.js",
     output: {
         path: __dirname + '/dist',
-        filename: "bundle.min.js"
+        filename: "bundle.js"
     },
     externals: {
         "jquery": "jQuery",
@@ -10,7 +12,22 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: "style!css" }
+            {
+                test: /\.vue$/,
+                loader: 'vue'
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: 'file',
+                query: {
+                    name: '[name].[ext]?[hash]'
+                }
+            }
         ]
     }
 };

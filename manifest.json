@@ -15,7 +15,7 @@
       "js": [
         "./node_modules/jquery/dist/jquery.min.js",
         "./node_modules/vue/dist/vue.min.js",
-        "./dist/bundle.min.js"
+        "./dist/bundle.js"
       ],
       "css": [
         "./css/third-party/fa/css/font-awesome.min.css",
