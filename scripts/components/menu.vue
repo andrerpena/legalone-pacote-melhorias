@@ -17,6 +17,7 @@
 
 <script>
 export default {
+    name: 'vnav',
     props: {
         menu: Array
     },

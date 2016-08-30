@@ -46,73 +46,15 @@
 
 	var $ = __webpack_require__(1);
 	var Vue = __webpack_require__(2);
-	var menu = __webpack_require__(3)();
-	var clone = __webpack_require__(4);
-	var searchUtils = __webpack_require__(5);
 
-	var Vnav = __webpack_require__(6);
+	var Sidebar = __webpack_require__(9);
 
-	$(".main-bar").before(`<div class='side-bar side-bar-left'>
-	                <div id='vnav-container'>
-	                    <div>
-	                        <div class='search-wrapper'>
-	                            <input type="text" v-model="searchTerm" v-on:keyup="search" class="vnav-input" placeholder="Pesquisa no menu"/>
-	                        </div>
-	                        <vnav :menu="menu"/>
-	                    </div>
-	                </div>
-	            </div>`);
+	$(".main-bar").before(`<sidebar></sidebar>`);
 
 	new Vue({
-	    el: '#vnav-container',
+	    el: 'div.main',
 	    components: {
-	        vnav: Vnav
-	    },
-	    data: function () {
-	        var menuItems = clone(menu);
-	        this.updateCollapsedState(menuItems, true);
-
-	        return {
-	            searchTerm: '',
-	            menu: menuItems
-	        };
-	    },
-	    methods: {
-	        // recursively set every menu item to expanded state (collapsed = false)
-	        updateCollapsedState: function (menuItem, collapsedState) {
-	            if (!menuItem) return;
-
-	            if (Array.isArray(menuItem)) {
-	                for (var i = 0; i < menuItem.length; i++) this.updateCollapsedState(menuItem[i], collapsedState);
-	            } else {
-	                menuItem.collapsed = collapsedState;
-	                this.updateCollapsedState(menuItem.menu, collapsedState);
-	            }
-	        },
-	        filterMenuItems: function (menuItems, term) {
-	            var result = [];
-	            for (var i = 0; i < menuItems.length; i++) {
-	                var filteredMenuItem = this.filterMenuItem(menuItems[i], term);
-	                if (filteredMenuItem) result.push(filteredMenuItem);
-	            }
-	            return result;
-	        },
-	        filterMenuItem: function (menuItem, term) {
-	            if (searchUtils.isContainedIn(term, menuItem.displayNameFull)) return menuItem;else if (menuItem.menu) {
-	                var filteredChildren = this.filterMenuItems(menuItem.menu, term);
-	                if (filteredChildren.length) {
-	                    menuItem.menu = filteredChildren;
-	                    return menuItem;
-	                }
-	            }
-	            return null;
-	        },
-	        search: function () {
-	            var menuItems = clone(menu);
-	            this.updateCollapsedState(menuItems, !this.searchTerm);
-
-	            this.menu = this.filterMenuItems(menuItems, this.searchTerm);
-	        }
+	        sidebar: Sidebar
 	    }
 	});
 
@@ -996,18 +938,29 @@
 	if (__vue_template__) {
 	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
 	}
-
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "./menu.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
 
 /***/ },
 /* 7 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports.default = {
+	    name: 'vnav',
 	    props: {
 	        menu: Array
 	    },
@@ -1023,6 +976,124 @@
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class='vnav-children-wrapper'>\n    <div v-for=\"menuItem in menu\" class='vnav-item-wrapper'>\n        <div class='vnav-item' data-val-displayNameFull='{{menuItem.displayNameFull}}'>\n            <i v-show=\"menuItem.icon\" class=\"vnav-icon fa fa-{{menuItem.icon}}\"></i>\n            <span class=\"vnav-item-text with-icon\">\n                    <a v-bind:href=\"menuItem.url\" class=\"vnav-link\" >{{ menuItem.displayName }}</a>\n                </span>\n            <span v-if=\"menuItem.menu && menuItem.menu.length\" class=\"plus-wrapper\" v-on:click=\"toggle(menuItem)\">\n                    <i class=\"vnav-icon fa\" v-bind:class=\"menuItem.collapsed ? 'fa-plus' : 'fa-minus'\" ></i>\n                </span>\n        </div>\n        <vnav v-if=\"!menuItem.collapsed\" :menu=\"menuItem.menu\" ></vnav>\n    </div>\n</div>\n";
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_script__ = __webpack_require__(10)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] scripts\\components\\sidebar.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(11)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "./sidebar.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _menu = __webpack_require__(3);
+
+	var _menu2 = _interopRequireDefault(_menu);
+
+	var _clone = __webpack_require__(4);
+
+	var _clone2 = _interopRequireDefault(_clone);
+
+	var _menu3 = __webpack_require__(6);
+
+	var _menu4 = _interopRequireDefault(_menu3);
+
+	var _searchUtils = __webpack_require__(5);
+
+	var _searchUtils2 = _interopRequireDefault(_searchUtils);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var menu = (0, _menu2.default)();
+
+	exports.default = {
+	    name: 'sidebar',
+	    components: {
+	        'vnav': _menu4.default
+	    },
+	    data: function data() {
+	        var menuItems = (0, _clone2.default)(menu);
+	        this.updateCollapsedState(menuItems, true);
+
+	        return {
+	            searchTerm: '',
+	            menu: menuItems
+	        };
+	    },
+	    methods: {
+	        updateCollapsedState: function updateCollapsedState(menuItem, collapsedState) {
+	            if (!menuItem) return;
+
+	            if (Array.isArray(menuItem)) {
+	                for (var i = 0; i < menuItem.length; i++) {
+	                    this.updateCollapsedState(menuItem[i], collapsedState);
+	                }
+	            } else {
+	                menuItem.collapsed = collapsedState;
+	                this.updateCollapsedState(menuItem.menu, collapsedState);
+	            }
+	        },
+	        filterMenuItems: function filterMenuItems(menuItems, term) {
+	            var result = [];
+	            for (var i = 0; i < menuItems.length; i++) {
+	                var filteredMenuItem = this.filterMenuItem(menuItems[i], term);
+	                if (filteredMenuItem) result.push(filteredMenuItem);
+	            }
+	            return result;
+	        },
+	        filterMenuItem: function filterMenuItem(menuItem, term) {
+	            if (_searchUtils2.default.isContainedIn(term, menuItem.displayNameFull)) return menuItem;else if (menuItem.menu) {
+	                var filteredChildren = this.filterMenuItems(menuItem.menu, term);
+	                if (filteredChildren.length) {
+	                    menuItem.menu = filteredChildren;
+	                    return menuItem;
+	                }
+	            }
+	            return null;
+	        },
+	        search: function search() {
+	            var menuItems = (0, _clone2.default)(menu);
+	            this.updateCollapsedState(menuItems, !this.searchTerm);
+
+	            this.menu = this.filterMenuItems(menuItems, this.searchTerm);
+	        }
+	    }
+	};
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class='side-bar side-bar-left'>\n    <div id='vnav-container'>\n        <div>\n            <div class='search-wrapper'>\n                <input type=\"text\" v-model=\"searchTerm\" v-on:keyup=\"search\" class=\"vnav-input\" placeholder=\"Pesquisa no menu\"/>\n            </div>\n            <vnav :menu=\"menu\"></vnav>\n        </div>\n    </div>\n</div>\n";
 
 /***/ }
 /******/ ]);
