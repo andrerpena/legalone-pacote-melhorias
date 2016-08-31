@@ -1,7 +1,7 @@
 var menu = [
     {
         displayName: 'Contatos',
-        url: '/contatos',
+        url: '/contatos/contatos/search',
         icon: 'user',
         menu: [
             {
