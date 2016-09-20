@@ -41,6 +41,7 @@
     "css-loader": "^0.24.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "gulp-cli": "^1.2.2",
+    "gulp-rename": "^1.2.2",
     "vue-hot-reload-api": "^2.0.6",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.2",
