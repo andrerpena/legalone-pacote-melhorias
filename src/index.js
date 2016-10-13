@@ -1,7 +1,7 @@
 var $ = require("jquery");
 var Vue = require("vue");
 
-// CSS
+// LESS
 require("./styles/styles.less");
 
 var Sidebar = require('./components/sidebar.vue');

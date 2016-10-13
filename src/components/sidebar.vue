@@ -69,6 +69,30 @@
                 }
                 return null;
             },
+            /**
+             * Creates a double-linked list for keyboard navigation
+             * @param menu
+             * @param parentItem
+             */
+            linkMenu: function(menu, parentItem) {
+                if(!menu || !menu.length) return parentItem;
+
+                let last = menu[0];
+
+                if(parentItem) parentItem.next = last;
+                last.previous = parentItem;
+
+                for(var i = 1; i < menu.length; i++) {
+
+                    var next = this.linkMenu(menu[i].menu);
+                    last.next = next;
+                }
+
+                return last;
+            },
+            linkMenuItem: function(menuItem) {
+
+            },
             search: function () {
                 var menuItems = clone(menu);
                 this.updateCollapsedState(menuItems, !this.searchTerm);
