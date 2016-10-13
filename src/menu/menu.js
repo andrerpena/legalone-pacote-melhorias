@@ -936,6 +936,7 @@ function processMenu(menu, prefix) {
     for (var i = 0; i < menu.length; i++) {
         var menuItem = menu[i];
         menuItem.displayNameFull = prefix + " " + menuItem.displayName;
+        menuItem.collapsed = true;
         if(menuItem.menu)
             processMenu(menuItem.menu, menuItem.displayNameFull);
     }
@@ -945,4 +946,4 @@ module.exports = function()
 {
     processMenu(menu, "");
     return menu;
-}
+};

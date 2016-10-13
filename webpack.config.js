@@ -5,7 +5,8 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: './dist',
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: 'chrome-extension://@@extension_id/'
     },
     externals: {
         "jquery": "jQuery",
@@ -24,6 +25,5 @@ module.exports = {
 
     plugins: [
         new ExtractTextPlugin('[name].css'),
-        new webpack.optimize.UglifyJsPlugin({minimize: true})
     ]
 };

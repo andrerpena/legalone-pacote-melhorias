@@ -17,6 +17,11 @@ gulp.task('copy_icons', function() {
         .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copy_popup', function() {
+    return gulp.src('./src/popup.html')
+        .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('copy_jquery', function() {
     return gulp.src('./node_modules/jquery/dist/jquery.min.js')
         .pipe(gulp.dest('./dist'));
@@ -27,7 +32,7 @@ gulp.task('copy_vue', function() {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('build', ['copy_manifest', 'copy_icons', 'copy_jquery', 'copy_vue'], function () {
+gulp.task('build', ['copy_manifest', 'copy_icons', 'copy_jquery', 'copy_vue', 'copy_popup'], function () {
     // place code for your default task here
     return gulp.src('./src/index.js')
         .pipe(webpack(webpackConfig))

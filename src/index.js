@@ -2,14 +2,14 @@ var $ = require("jquery");
 var Vue = require("vue");
 
 // CSS
-require("../css/styles.less");
+require("./styles/styles.less");
 
 var Sidebar = require('./components/sidebar.vue');
 
-$(".main-bar").before('<sidebar></sidebar>');
+$(".main-bar").before('<div id="vnav-wrapper" class=\'side-bar side-bar-left\'><sidebar></sidebar></div>');
 
 new Vue({
-    el: 'div.main',
+    el: '#vnav-wrapper',
     components: {
         sidebar: Sidebar
     }

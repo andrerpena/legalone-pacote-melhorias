@@ -23,6 +23,13 @@
       "run_at": "document_end"
     }
   ],
+  "web_accessible_resources": [
+    "fontawesome-webfont.eot",
+    "fontawesome-webfont.svg",
+    "fontawesome-webfont.ttf",
+    "fontawesome-webfont.woff",
+    "fontawesome-webfont.woff2"
+  ],
   "permissions": [
     "activeTab"
   ],
