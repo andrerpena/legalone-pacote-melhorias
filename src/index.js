@@ -6,7 +6,7 @@ require("./styles/styles.less");
 
 var Sidebar = require('./components/sidebar.vue');
 
-$(".main-bar").before('<div id="vnav-wrapper" class=\'side-bar side-bar-left\'><sidebar></sidebar></div>');
+$(".main-bar").before('<div id="vnav-wrapper"><sidebar></sidebar></div>');
 
 new Vue({
     el: '#vnav-wrapper',
