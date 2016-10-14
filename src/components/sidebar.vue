@@ -3,7 +3,8 @@
         <div id='vnav-container'>
             <div>
                 <div class='search-wrapper'>
-                    <input type="text" v-model="searchTerm" v-on:keyup="search" class="vnav-input"
+                    <input id="vnav_input" type="text" v-model="searchTerm" @keyup="handkeKeyUp" @keydown="handleKeyDown"
+                           class="vnav-input"
                            placeholder="Pesquisa no menu"/>
                 </div>
                 <vnav :menu="menu"></vnav>
@@ -17,6 +18,7 @@
     import clone from '../lib/clone.js';
     import Vnav from './menu.vue';
     import searchUtils from '../lib/searchUtils';
+    import menuLinker from '../lib/menuLinker';
 
     let menu = menuGetter();
 
@@ -27,10 +29,12 @@
         },
         data: function () {
             var menuItems = clone(menu);
+            menuLinker.link(menuItems);
 
             return {
                 searchTerm: '',
-                menu: menuItems
+                menu: menuItems,
+                selectedNode: undefined
             }
         },
         methods: {
@@ -74,15 +78,15 @@
              * @param menu
              * @param parentItem
              */
-            linkMenu: function(menu, parentItem) {
-                if(!menu || !menu.length) return parentItem;
+            linkMenu: function (menu, parentItem) {
+                if (!menu || !menu.length) return parentItem;
 
                 let last = menu[0];
 
-                if(parentItem) parentItem.next = last;
+                if (parentItem) parentItem.next = last;
                 last.previous = parentItem;
 
-                for(var i = 1; i < menu.length; i++) {
+                for (var i = 1; i < menu.length; i++) {
 
                     var next = this.linkMenu(menu[i].menu);
                     last.next = next;
@@ -90,14 +94,73 @@
 
                 return last;
             },
-            linkMenuItem: function(menuItem) {
 
+            focusVNavInput: function() {
+                setTimeout(function () {
+                    var vnav_input = document.getElementById("vnav_input");
+                    vnav_input.setSelectionRange(0, vnav_input.value.length);
+                },0);
             },
-            search: function () {
-                var menuItems = clone(menu);
-                this.updateCollapsedState(menuItems, !this.searchTerm);
 
-                this.menu = this.filterMenuItems(menuItems, this.searchTerm)
+            handkeKeyUp: function (e) {
+                if(e.keyCode == 13 && this.selectedNode) {
+                    window.location.href = this.selectedNode.url;
+                }
+                else if(e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 38 && e.keyCode != 40) {
+                    var menuItems = clone(menu);
+                    this.selectedNode = null;
+                    this.updateCollapsedState(menuItems, !this.searchTerm);
+                    this.menu = this.filterMenuItems(menuItems, this.searchTerm);
+                    menuLinker.link(this.menu);
+                }
+            },
+
+            handleKeyDown: function (e) {
+                switch (e.keyCode) {
+                    case 37: // left
+                        if (this.selectedNode)
+                            this.selectedNode.collapsed = true;
+                        break;
+                    case 39: // right
+                        if (this.selectedNode)
+                            this.selectedNode.collapsed = false;
+                        break;
+                    case 38: // up
+                        if (!this.selectedNode)
+                            return;
+                        this.selectedNode.selected = false;
+                        let previousNode = this.selectedNode.previous;
+                        if (previousNode)
+                            previousNode.selected = true;
+                        else {
+                            this.focusVNavInput();
+                        }
+                        this.selectedNode = previousNode;
+                        break;
+                    case 40: // down
+                        if (!this.selectedNode) {
+                            this.selectedNode = this.menu[0];
+                            this.selectedNode.selected = true;
+                            this.focusVNavInput();
+                        } else {
+                            this.selectedNode.selected = false;
+                            let nextNode = this.selectedNode.next;
+                            if (nextNode)
+                                nextNode.selected = true;
+                            else {
+                                this.focusVNavInput();
+                            }
+                            this.selectedNode = nextNode;
+                        }
+                        break;
+                    default:
+                        return;
+                }
+
+                if (this.selectedNode)
+                    e.preventDefault();
+
+                menuLinker.link(this.menu);
             }
         }
     }
