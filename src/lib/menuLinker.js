@@ -1,20 +1,24 @@
 export default {
-    linkMenu: function (menu, parentItem) {
-        if (!menu || !menu.length) return parentItem;
-
-        let last = menu[0];
-
-        if (parentItem) parentItem.next = last;
-        last.previous = parentItem;
-
-        for (var i = 1; i < menu.length; i++) {
-            var next = this.linkMenu(menu[i].menu);
-            last.next = next;
-            next.previous = last;
-
-            last = next;
+    /**
+     * Fills "items" with all nodes in order
+     * @param menu
+     * @param items
+     */
+    fillItemsInOrder: function (menu, items) {
+        if(!items) items = [];
+        for(var i = 0; i < menu.length; i++) {
+            items.push(menu[i]);
+            if(menu[i].menu) this.fillItemsInOrder(menu[i].menu, items);
         }
-
-        return last;
+    },
+    /**
+     * Double links the given list of nodes
+     * @param items
+     */
+    doubleLinkItems: function(items) {
+        for(var i = 0; i < items.length; i++) {
+            items[i].next = i + 1 < items.length ? items[i + 1] : undefined;
+            items[i].previous = i > 0 ? items[i - 1] : undefined;
+        }
     }
-}
+};
