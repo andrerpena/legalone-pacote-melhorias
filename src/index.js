@@ -5,7 +5,7 @@ import setupMaximize from './jquery-actions/maximize';
 import setupNavigation from './vue-actions/setupNavigation';
 
 // Styles
-require("./styles/styles.less");
+import "./styles/styles.less";
 
 // Sets up jQuery actions
 setupNavFocus($);
@@ -13,3 +13,5 @@ setupMaximize($);
 
 // Sets up Vue actions
 setupNavigation();
+
+$(".command-link").remove();

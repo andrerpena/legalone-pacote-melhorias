@@ -4,7 +4,7 @@
   "description": "A adiciona funcionalidades e melhora a usabilidade do LegalOne. Esta é uma ferramenta open-source desenvolvida pela comunidade e não possui ligação com a funcionalidade com a Thomson Reuters</b>.",
   "main": "main.entry.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production gulp build",
+    "build": "cross-env NODE_ENV=production gulp build"
   },
   "repository": {
     "type": "git",
