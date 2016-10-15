@@ -7,7 +7,7 @@ var webpackConfig = require('./webpack.config.js');
 webpackConfig.output.path = null;
 
 gulp.task('copy_manifest', function() {
-    return gulp.src('./manifest.template.json')
+    return gulp.src('./src/manifest.template.json')
         .pipe(rename('manifest.json'))
         .pipe(gulp.dest('./dist'));
 });
