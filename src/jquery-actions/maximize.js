@@ -25,12 +25,20 @@ var documentBodyExpandedCssAnimation = {
     left: 0
 };
 
+/**
+ * Minimizes the document 
+ * @param {any} $
+ */
 function minimize($) {
     $(".document-body").css(documentBodyDefaultCss);
     maximizedHeader.remove();
     maximizedHeader = undefined;
 }
 
+/**
+ * Minimizes the document 
+ * @param {any} $
+ */
 function maximize($) {
     maximizedHeader = $("<div class=\"maximized-header\"><h3>" + $(".document > .document-header .text").text() + "</h3>");
     $(".document-body").prepend(maximizedHeader);
@@ -44,8 +52,15 @@ function maximize($) {
     });
 }
 
+/**
+ * Sets up document maximization/minimization
+ * @export function
+ * @param {any} $
+ */
 export default function setupMaximize($) {
     var documentHeader = $(".document > .document-header .text");
+
+    // the maximization/minimization will only work if the page contains a document
     if (documentHeader.length) {
         var expandIcon = $("<i class=\"fa fa-expand expand-icon\" aria-hidden=\"true\"></i>");
         expandIcon.click(function () {

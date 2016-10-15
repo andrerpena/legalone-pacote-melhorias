@@ -1,5 +1,10 @@
 var menu = [
     {
+        displayName: 'Home',
+        url: '/',
+        icon: 'home'
+    },
+    {
         displayName: 'Contatos',
         url: '/contatos/contatos/search',
         icon: 'user',
@@ -932,6 +937,12 @@ var menu = [
     }
 ];
 
+/**
+ * Updates the displayNameFull, collapsed and selected state of all menu items
+ * 
+ * @param {any} menu
+ * @param {any} prefix
+ */
 function processMenu(menu, prefix) {
     for (var i = 0; i < menu.length; i++) {
         var menuItem = menu[i];
@@ -943,7 +954,7 @@ function processMenu(menu, prefix) {
     }
 }
 
-module.exports = function()
+export default function()
 {
     processMenu(menu, "");
     return menu;

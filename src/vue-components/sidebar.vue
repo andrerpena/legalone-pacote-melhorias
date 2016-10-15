@@ -16,7 +16,7 @@
 <script>
     import menuGetter from '../menu/menu';
     import clone from '../lib/clone.js';
-    import Vnav from './menu.vue';
+    import Vnav from './vnav.vue';
     import searchUtils from '../lib/searchUtils';
     import menuLinker from '../lib/menuLinker';
 

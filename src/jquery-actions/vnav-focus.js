@@ -1,3 +1,9 @@
+/**
+ * Sets up the navigation focus 
+ * 
+ * @export
+ * @param {any} $
+ */
 export default function setupNavFocus($) {
     // This will focus the search bar
     var shiftPressed = false;

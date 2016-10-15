@@ -1,22 +1,15 @@
-var $ = require("jquery");
-var Vue = require("vue");
-
-// LESS
-require("./styles/styles.less");
-
+import $ from "jquery";
+import Vue from  "vue";
 import setupNavFocus from './jquery-actions/vnav-focus';
 import setupMaximize from './jquery-actions/maximize';
+import setupNavigation from './vue-actions/setupNavigation';
 
+// Styles
+require("./styles/styles.less");
+
+// Sets up jQuery actions
 setupNavFocus($);
 setupMaximize($);
 
-var Sidebar = require('./components/sidebar.vue');
-
-$(".main-bar").before('<div id="vnav-wrapper"><sidebar></sidebar></div>');
-
-new Vue({
-    el: '#vnav-wrapper',
-    components: {
-        sidebar: Sidebar
-    }
-});
+// Sets up Vue actions
+setupNavigation();
