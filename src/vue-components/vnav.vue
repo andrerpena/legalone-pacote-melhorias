@@ -7,7 +7,7 @@
                     <a :href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
                 </span>
                 <span v-if="menuItem.menu && menuItem.menu.length" class="plus-wrapper" @click="toggle(menuItem)">
-                    <i class="vnav-icon fa" :class="menuItem.collapsed ? 'fa-plus' : 'fa-minus'" ></i>
+                    <i class="vnav-icon fa" :class="menuItem.collapsed ? 'fa-angle-up' : 'fa-angle-down'" ></i>
                 </span>
             </div>
             <vnav v-if="!menuItem.collapsed" :menu="menuItem.menu" ></vnav>
