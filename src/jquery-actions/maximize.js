@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 var maximizedHeader;
 
 var documentBodyDefaultCss = {
@@ -26,20 +28,18 @@ var documentBodyExpandedCssAnimation = {
 };
 
 /**
- * Minimizes the document 
- * @param {any} $
+ * Minimizes the document
  */
-function minimize($) {
+function minimize() {
     $(".document-body").css(documentBodyDefaultCss);
     maximizedHeader.remove();
     maximizedHeader = undefined;
 }
 
 /**
- * Minimizes the document 
- * @param {any} $
+ * Minimizes the document
  */
-function maximize($) {
+function maximize() {
     maximizedHeader = $("<div class=\"maximized-header\"><h3>" + $(".document > .document-header .text").text() + "</h3>");
     $(".document-body").prepend(maximizedHeader);
     $(".document-body").css(documentBodyExpandedCss).animate(documentBodyExpandedCssAnimation, 200);
@@ -48,7 +48,7 @@ function maximize($) {
     $("h3", maximizedHeader).append(compressIcon);
 
     compressIcon.click(function () {
-        minimize($)
+        minimize()
     });
 }
 
@@ -57,14 +57,14 @@ function maximize($) {
  * @export function
  * @param {any} $
  */
-export default function setupMaximize($) {
+export default function setupMaximize() {
     var documentHeader = $(".document > .document-header .text");
 
     // the maximization/minimization will only work if the page contains a document
     if (documentHeader.length) {
         var expandIcon = $("<i class=\"fa fa-expand expand-icon\" aria-hidden=\"true\"></i>");
         expandIcon.click(function () {
-            maximize($);
+            maximize();
         });
 
         if ($("h3", documentHeader).length)
@@ -75,15 +75,15 @@ export default function setupMaximize($) {
         $(document).keydown(function (e) {
             if (e.ctrlKey && e.keyCode == 77) {
                 if (maximizedHeader) {
-                    minimize($);
+                    minimize();
                 }
                 else {
-                    maximize($);
+                    maximize();
                 }
             }
 
             if(e.keyCode == 27 && maximizedHeader)
-                minimize($);
+                minimize();
         });
     }
 }
