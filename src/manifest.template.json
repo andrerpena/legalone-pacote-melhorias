@@ -31,7 +31,8 @@
     "fontawesome-webfont.woff2"
   ],
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "icons": {
     "48": "icon.png",

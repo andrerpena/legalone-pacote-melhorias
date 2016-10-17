@@ -1,4 +1,4 @@
-var menu = [
+export default [
     {
         displayName: 'Home',
         url: '/',
@@ -936,26 +936,3 @@ var menu = [
         ]
     }
 ];
-
-/**
- * Updates the displayNameFull, collapsed and selected state of all menu items
- * 
- * @param {any} menu
- * @param {any} prefix
- */
-function processMenu(menu, prefix) {
-    for (var i = 0; i < menu.length; i++) {
-        var menuItem = menu[i];
-        menuItem.displayNameFull = prefix + " " + menuItem.displayName;
-        menuItem.collapsed = true;
-        menuItem.selected = false;
-        if(menuItem.menu)
-            processMenu(menuItem.menu, menuItem.displayNameFull);
-    }
-}
-
-export default function()
-{
-    processMenu(menu, "");
-    return menu;
-};

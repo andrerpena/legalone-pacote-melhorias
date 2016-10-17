@@ -1,98 +1,77 @@
 <template>
-    <div class='side-bar side-bar-left'>
-        <div id='vnav-container'>
-            <div>
-                <div class='search-wrapper'>
-                    <input id="vnav_input" type="text" v-model="searchTerm" @keyup="handkeKeyUp" @keydown="handleKeyDown"
-                           class="vnav-input"
-                           placeholder="Pesquisa no menu"/>
-                </div>
-                <vnav :menu="menu"></vnav>
-            </div>
-        </div>
-    </div>
+	<div class='side-bar side-bar-left'>
+		<div id='vnav-container'>
+			<div>
+				<div class='search-wrapper'>
+					<input id="vnav_input" type="text" v-model="searchTerm" @keyup="handleKeyUp" @keydown="handleKeyDown" class="vnav-input"
+						placeholder="Pesquisa no menu" />
+				</div>
+				<vnav :menu="menu" @toggle="handleToggle" @star="handleStar"></vnav>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
-    import menuGetter from '../menu/menu';
+    import menuRaw from '../menu/menu';
     import clone from '../lib/clone.js';
     import Vnav from './vnav.vue';
     import searchUtils from '../lib/searchUtils';
-    import menuLinker from '../lib/menuLinker';
+    import menuHelper from '../lib/menuHelper';
 
-    let menu = menuGetter();
-
-    export default {
+    var sidebar = {
         name: 'sidebar',
+        props: ['favorites'],
         components: {
             'vnav': Vnav
         },
         data: function () {
-            var menuItems = clone(menu);
-            menuLinker.link(menuItems);
+
+            var menuItems = clone(menuRaw);
+            menuHelper.mergeFavorites(menuItems, this.favorites);
+            menuHelper.processMenu(menuItems, "");
+            var favorites = this.favorites;
 
             return {
                 searchTerm: '',
                 menu: menuItems,
-                selectedNode: undefined
+                selectedNode: undefined,
+                favorites: favorites
             }
         },
-        methods: {
-            // recursively set every menu item to expanded state (collapsed = false)
-            updateCollapsedState: function (menuItem, collapsedState) {
-                if (!menuItem)
-                    return;
+        computed: {
+            favoritesComputed: function() {
 
-                if (Array.isArray(menuItem)) {
-                    for (var i = 0; i < menuItem.length; i++)
-                        this.updateCollapsedState(menuItem[i], collapsedState);
-                }
-                else {
-                    menuItem.collapsed = collapsedState;
-                    this.updateCollapsedState(menuItem.menu, collapsedState);
-                }
             },
-            filterMenuItems: function (menuItems, term) {
-                var result = [];
-                for (var i = 0; i < menuItems.length; i++) {
-                    var filteredMenuItem = this.filterMenuItem(menuItems[i], term);
-                    if (filteredMenuItem)
-                        result.push(filteredMenuItem);
-                }
-                return result;
-            },
-            filterMenuItem: function (menuItem, term) {
-                if (searchUtils.isContainedIn(term, menuItem.displayNameFull))
-                    return menuItem;
-                else if (menuItem.menu) {
-                    var filteredChildren = this.filterMenuItems(menuItem.menu, term);
-                    if (filteredChildren.length) {
-                        menuItem.menu = filteredChildren;
-                        return menuItem;
+        },
+        methods: {
+
+            handleStar: function(menuItem) {
+                if(!menuItem.starred) {
+                    var menuName = prompt("Nome do item em 'favoritos'", menuItem.displayName);
+                    if (menuName != null) {
+                        menuItem.starred = true;
+
+                        let newFavorite = clone(menuItem);
+                        newFavorite.displayName = menuName;
+
+                        // add to the favorites collection
+                        this.favorites.push(newFavorite);
+
+                        chrome.storage.sync.set({'favorites': this.favorites}, function() {
+                            // ok
+                        });
+
+                        // update the menu
+                        menuHelper.appendFavorite(this.menu, newFavorite);
+                        menuHelper.link(menuItems);
                     }
                 }
-                return null;
             },
-            /**
-             * Creates a double-linked list for keyboard navigation
-             * @param menu
-             * @param parentItem
-             */
-            linkMenu: function (menu, parentItem) {
-                if (!menu || !menu.length) return parentItem;
 
-                let last = menu[0];
-
-                if (parentItem) parentItem.next = last;
-                last.previous = parentItem;
-
-                for (var i = 1; i < menu.length; i++) {
-
-                    var next = this.linkMenu(menu[i].menu);
-                    last.next = next;
-                }
-
-                return last;
+            handleToggle: function(menuItem) {
+                console.log('toggle');
+                menuItem.collapsed = !menuItem.collapsed;
             },
 
             focusVNavInput: function() {
@@ -102,16 +81,21 @@
                 },0);
             },
 
-            handkeKeyUp: function (e) {
+            handleKeyUp: function (e) {
                 if(e.keyCode == 13 && this.selectedNode) {
                     window.location.href = this.selectedNode.url;
                 }
                 else if(e.keyCode != 37 && e.keyCode != 39 && e.keyCode != 38 && e.keyCode != 40) {
-                    var menuItems = clone(menu);
                     this.selectedNode = null;
-                    this.updateCollapsedState(menuItems, !this.searchTerm);
-                    this.menu = this.filterMenuItems(menuItems, this.searchTerm);
-                    menuLinker.link(this.menu);
+
+                    var menuItems = clone(menuRaw);
+                    menuHelper.mergeFavorites(menuItems, this.favorites);
+                    menuHelper.processMenu(menuItems, "");
+                    menuHelper.updateCollapsedState(menuItems, !this.searchTerm);
+                    menuItems = menuHelper.filterMenuItems(menuItems, this.searchTerm);
+                    menuHelper.link(menuItems);
+
+                    this.menu = menuItems;
                 }
             },
 
@@ -160,8 +144,9 @@
                 if (this.selectedNode)
                     e.preventDefault();
 
-                menuLinker.link(this.menu);
+                menuHelper.link(this.menu);
             }
         }
     }
+    export default sidebar;
 </script>

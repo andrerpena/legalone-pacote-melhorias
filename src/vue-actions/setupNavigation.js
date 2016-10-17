@@ -4,12 +4,19 @@ import Sidebar from '../vue-components/sidebar.vue';
 
 export default function () {
 
-    $(".main-bar").before('<div id="vnav-wrapper"><sidebar></sidebar></div>');
+    $(".main-bar").before('<div id="vnav-wrapper"><sidebar :favorites="favorites" ></sidebar></div>');
 
-    new Vue({
-        el: '#vnav-wrapper',
-        components: {
-            sidebar: Sidebar
-        }
+    chrome.storage.sync.get(['favorites'], function (favorites) {
+
+        var sidebar = new Vue({
+            el: '#vnav-wrapper',
+            data: {
+                favorites: favorites
+            },
+            components: {
+                sidebar: Sidebar
+            }
+        });
+
     });
 }

@@ -7,10 +7,13 @@
                     <a :href="menuItem.url" class="vnav-link" >{{ menuItem.displayName }}</a>
                 </span>
                 <span v-if="menuItem.menu && menuItem.menu.length" class="plus-wrapper" @click="toggle(menuItem)">
-                    <i class="vnav-icon fa" :class="menuItem.collapsed ? 'fa-angle-up' : 'fa-angle-down'" ></i>
+                    <i class="vnav-icon fa" :class="menuItem.collapsed ? 'fa-caret-right' : 'fa-caret-down'" ></i>
+                </span>
+                <span class="star-wrapper" @click="star(menuItem)">
+                    <i class="vnav-icon fa" :class="menuItem.starred ? 'fa-star' : 'fa-star-o'" ></i>
                 </span>
             </div>
-            <vnav v-if="!menuItem.collapsed" :menu="menuItem.menu" ></vnav>
+            <vnav v-if="!menuItem.collapsed" :menu="menuItem.menu" @toggle="handleToggle" ></vnav>
         </div>
     </div>
 </template>
@@ -23,7 +26,13 @@ export default {
     },
     methods: {
         toggle: function(menuItem) {            
-            menuItem.collapsed = !menuItem.collapsed;
+            this.$emit('toggle', menuItem);
+        },
+        handleToggle: function(menuItem) {
+            this.$emit('toggle', menuItem);
+        },
+        star: function(menuItem) {
+            this.$emit('star', menuItem);
         }
     }
   }
