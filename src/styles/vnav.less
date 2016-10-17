@@ -52,6 +52,10 @@
   background-color: #F0F3F5;
 }
 
+.vnav-item.here {
+  border-left: 2px solid orange;
+}
+
 .vnav-item-text.with-icon {
 }
 
@@ -61,13 +65,18 @@
 
 
 .vnav-item .star-wrapper {
-  margin-top: 3px;
+  display:none;
+  margin-top: 2px;
   float: right;
 }
 
+.vnav-item:hover .star-wrapper {
+    display: inline;
+}
+
 .vnav-item .plus-wrapper {
-  margin-top: 3px;
-  margin-left: 3px;
+  margin-top: 2px;
+  margin-left: 5px;
   float: right;
 }
 

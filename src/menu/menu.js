@@ -16,7 +16,7 @@ export default [
                 menu: [
                     {
                         displayName: 'Alterar painel',
-                        url: '/config/widgets/edit/contatos?returnUrl=%2Fcontatos',
+                        url: '/config/widgets/edit/contatos',
                         icon: 'pencil'
                     }
                 ]
@@ -89,7 +89,7 @@ export default [
                 menu: [
                     {
                         displayName: 'Alterar painel',
-                        url: '/config/widgets/edit/agenda?returnUrl=%2Fagenda',
+                        url: '/config/widgets/edit/agenda',
                         icon: 'pencil'
                     }
                 ]
@@ -316,7 +316,7 @@ export default [
                     {
                         displayName: 'Novo aditivo de contrato de cliente',
                         icon: 'plus-circle',
-                        url: '/contratos/contratoAditivo/create?returnUrl=%2Fcontratos%2Fcontratocliente%2Fsearch'
+                        url: '/contratos/contratoAditivo/create'
                     },
                     {
                         displayName: 'Gerar relatório padrão',
@@ -337,7 +337,7 @@ export default [
                 menu: [
                     {
                         displayName: 'Novo contrato de honorário',
-                        url: '/contratos/contratos/create?returnUrl=%2Fcontratos%2Fcontratos%2Fsearch',
+                        url: '/contratos/contratos/create',
                         icon: 'plus-circle'
                     },
                     {
@@ -388,7 +388,7 @@ export default [
                 menu: [
                     {
                         displayName: 'Alterar painel',
-                        url: '/config/widgets/edit/financeiro?returnUrl=%2Ffinanceiro',
+                        url: '/config/widgets/edit/financeiro',
                         icon: 'pencil'
                     }
                 ]
@@ -700,12 +700,12 @@ export default [
                     {
                         displayName: 'Anexar arquivo',
                         icon: 'paperclip',
-                        url: '/GED/GEDArquivos/create?returnUrl=%2FGED%2FGEDArquivos%2FSearch'
+                        url: '/GED/GEDArquivos/create'
                     },
                     {
                         displayName: 'Gerar documento',
                         icon: 'files-o',
-                        url: '/GED/GeradorDocumentos/Generate?returnUrl=%2FGED%2FGEDArquivos%2FSearch'
+                        url: '/GED/GeradorDocumentos/Generate'
                     },
                     {
                         displayName: 'Gerar relatório padrão',
@@ -727,7 +727,7 @@ export default [
                     {
                         displayName: 'Novo modelo de documento',
                         icon: 'plus-circle',
-                        url: '/GED/GeradorDocumentos/Create?returnUrl=%2FGED%2FGeradorDocumentos%2FSearch'
+                        url: '/GED/GeradorDocumentos/Create'
                     },
                     {
                         displayName: 'Gerar documento',
@@ -784,7 +784,7 @@ export default [
                 menu: [
                     {
                         displayName: 'Alterar painel',
-                        url: '/config/widgets/edit/timesheet?returnUrl=%2FTimeSheet%2FHomeTimeSheet',
+                        url: '/config/widgets/edit/timesheet',
                         icon: 'pencil'
                     }
                 ]
@@ -875,7 +875,7 @@ export default [
             {
                 displayName: 'Nova mesa',
                 icon: 'plus-circle',
-                url: '/MesasTrabalho/mesas/create?returnUrl=%2FMesasTrabalho%2FMesas%2FSearch'
+                url: '/MesasTrabalho/mesas/create'
             },
         ]
     },

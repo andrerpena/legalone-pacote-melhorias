@@ -1,5 +1,6 @@
 import clone from 'clone';
 import searchUtils from './searchUtils';
+import _ from 'underscore';
 
 export default {
     /**
@@ -34,7 +35,7 @@ export default {
     mergeFavorites: function (menu, favorites) {
         if (favorites && favorites.length) {
             if (menu[0].id == 'fav') {
-                menu[0].menu = menu[0].concat(favorites);
+                menu[0].menu = favorites;
             }
             else {
                 var favoritesMenu = {
@@ -44,6 +45,13 @@ export default {
                     menu: clone(favorites)
                 };
                 menu.unshift(favoritesMenu);
+            }
+        }
+        else {
+            // if there's no favorite, let's just remove the menu, if it exists
+            if (menu[0].id == 'fav') {
+                menu[0].menu = [];
+                menu.splice(0, 1);
             }
         }
     },
@@ -62,20 +70,37 @@ export default {
             menu.unshift(favoritesMenu);
         }
     },
-    
 
-    processMenuItem: function (menuItem, prefix) {
+    removeFavorite: function (menu, favorites, url) {
+        let indexToRemove = -1;
+        for (var i = 0; i < favorites.length; i++) {
+            if (favorites[i].url == url) {
+                indexToRemove = i;
+                break;
+            }
+        }
+        if (indexToRemove == -1) return;
+
+        // remove from the favorites collection
+        favorites.splice(indexToRemove, 1);
+
+        // remove from the menu
+        this.mergeFavorites(menu, favorites);
+    },
+
+    processMenuItem: function (menuItem, favorites, prefix) {
         menuItem.displayNameFull = prefix ? prefix + " " + menuItem.displayName : menuItem.displayName;
         menuItem.collapsed = true;
         menuItem.selected = false;
-        menuItem.starred = false;
+        menuItem.starred = _.find(favorites, f => f.url == menuItem.url);
+
         if (menuItem.menu)
-            this.processMenu(menuItem.menu, menuItem.displayNameFull);
+            this.processMenu(menuItem.menu, favorites, menuItem.displayNameFull);
     },
 
-    processMenu: function (menu, prefix) {
+    processMenu: function (menu, favorites, prefix) {
         for (var i = 0; i < menu.length; i++) {
-            this.processMenuItem(menu[i], prefix)
+            this.processMenuItem(menu[i], favorites, prefix)
         }
     },
 
@@ -115,5 +140,47 @@ export default {
             menuItem.collapsed = collapsedState;
             this.updateCollapsedState(menuItem.menu, collapsedState);
         }
+    },
+
+    uncheckStarred: function (menu, url) {
+        if (!menu || !menu.length) return;
+        for (var i = 0; i < menu.length; i++) {
+            if (menu[i].url == url)
+                menu[i].starred = false;
+            this.uncheckStarred(menu[i].menu, url);
+        }
+    },
+
+    shallowCloneMenuItem: function (menuItem) {
+        return {
+            displayName: menuItem.displayName,
+            url: menuItem.url,
+            icon: menuItem.icon,
+        }
+    },
+
+    expandToMenu(menu, url) {
+
+        var compareUrls = function (url1, url2) {
+            if (!url1 || !url2) return false;
+            return url1.toLowerCase() == url2.toLowerCase();
+        }
+
+        if (!menu || !menu.length) return false;
+        for (var i = 0; i < menu.length; i++) {
+            if (compareUrls(menu[i].url, url)) {
+                menu[i].collapsed = false;
+                menu[i].here = true;
+                return true;
+            }
+            else {
+                var isChildTheRightUrl = this.expandToMenu(menu[i].menu, url);
+                if (isChildTheRightUrl) {
+                    menu[i].collapsed = false;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 };

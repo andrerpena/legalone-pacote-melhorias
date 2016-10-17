@@ -6,7 +6,7 @@
 					<input id="vnav_input" type="text" v-model="searchTerm" @keyup="handleKeyUp" @keydown="handleKeyDown" class="vnav-input"
 						placeholder="Pesquisa no menu" />
 				</div>
-				<vnav :menu="menu" @toggle="handleToggle" @star="handleStar"></vnav>
+				<vnav :menu="menu" :fav="fav" @toggle="handleToggle" @star="handleStar"></vnav>
 			</div>
 		</div>
 	</div>
@@ -18,20 +18,26 @@
     import Vnav from './vnav.vue';
     import searchUtils from '../lib/searchUtils';
     import menuHelper from '../lib/menuHelper';
+    import _ from 'underscore';
 
     var sidebar = {
         name: 'sidebar',
-        props: ['favorites'],
+        props: ['fav', 'color'],
         components: {
             'vnav': Vnav
         },
         data: function () {
 
-            var menuItems = clone(menuRaw);
-            menuHelper.mergeFavorites(menuItems, this.favorites);
-            menuHelper.processMenu(menuItems, "");
-            var favorites = this.favorites;
+            var favorites = this.fav;
+            var color = this.color;
 
+            var menuItems = clone(menuRaw);
+
+            menuHelper.mergeFavorites(menuItems, favorites);
+            menuHelper.processMenu(menuItems, favorites, "");
+            console.log( window.location.pathname);
+            menuHelper.expandToMenu(menuItems, window.location.pathname);
+            
             return {
                 searchTerm: '',
                 menu: menuItems,
@@ -47,26 +53,42 @@
         methods: {
 
             handleStar: function(menuItem) {
+
                 if(!menuItem.starred) {
                     var menuName = prompt("Nome do item em 'favoritos'", menuItem.displayName);
                     if (menuName != null) {
+
                         menuItem.starred = true;
 
-                        let newFavorite = clone(menuItem);
+                        let newFavorite = menuHelper.shallowCloneMenuItem(menuItem);
+                        newFavorite.starred = true;
+                        newFavorite.favoriteItem = true; // this is to mark it's a favorite menu so it will be removed when it's unchecked
                         newFavorite.displayName = menuName;
 
                         // add to the favorites collection
                         this.favorites.push(newFavorite);
 
                         chrome.storage.sync.set({'favorites': this.favorites}, function() {
-                            // ok
+                            console.log('saved successfully');
                         });
 
                         // update the menu
                         menuHelper.appendFavorite(this.menu, newFavorite);
-                        menuHelper.link(menuItems);
+                        menuHelper.link(this.menu);
                     }
                 }
+                else {
+                        // if it's not an item from inside the favorites menu
+                        menuItem.starred = false;
+                        menuHelper.removeFavorite(this.menu, this.favorites, menuItem.url);
+                        menuHelper.uncheckStarred(this.menu, menuItem.url);
+
+                        chrome.storage.sync.set({'favorites': this.favorites}, function() {
+                            console.log('saved successfully');
+                        });
+                }
+
+                this.$emit('favchanged', this.favorites);
             },
 
             handleToggle: function(menuItem) {
@@ -90,7 +112,7 @@
 
                     var menuItems = clone(menuRaw);
                     menuHelper.mergeFavorites(menuItems, this.favorites);
-                    menuHelper.processMenu(menuItems, "");
+                    menuHelper.processMenu(menuItems, this.favorites, "");
                     menuHelper.updateCollapsedState(menuItems, !this.searchTerm);
                     menuItems = menuHelper.filterMenuItems(menuItems, this.searchTerm);
                     menuHelper.link(menuItems);
