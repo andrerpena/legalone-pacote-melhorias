@@ -62,6 +62,7 @@ export default {
             menu.unshift(favoritesMenu);
         }
     },
+    
 
     processMenuItem: function (menuItem, prefix) {
         menuItem.displayNameFull = prefix ? prefix + " " + menuItem.displayName : menuItem.displayName;
