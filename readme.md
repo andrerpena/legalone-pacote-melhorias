@@ -32,7 +32,7 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 
 ## Introdução da versão 1.16 em vídeo no YouTube:
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/WhrOQ2XwRRE&feature/0.jpg)](https://www.youtube.com/watch?v=WhrOQ2XwRRE&feature)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/WhrOQ2XwRRE/0.jpg)](https://www.youtube.com/watch?v=WhrOQ2XwRRE&feature=youtu.be)
 
 ## Funcionalidades
 
