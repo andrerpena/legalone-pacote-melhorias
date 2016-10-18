@@ -1,13 +1,14 @@
 # LegalOne - Pacote de melhorias (não oficial)
 
-A adiciona funcionalidades e melhora a usabilidade do Thomson Reuters - Legal One . 
+A adiciona funcionalidades e melhora a usabilidade do [Thomson Reuters - Legal One](https://www.thomsonreuters.com.br/pt/juridico/legal-one.html). 
 Esta é uma ferramenta gratuita, de código aberto, desenvolvida pela comunidade e não possui nenhuma 
-ligação com a Thomson Reuters.
+ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [Produtos suportados:](#produtos-suportados)
 - [Funcionalidades](#funcionalidades)
   - [Design mais limpo, com cores menos vibrantes:](#design-mais-limpo-com-cores-menos-vibrantes)
   - [Barra de salvar fixa](#barra-de-salvar-fixa)
@@ -22,6 +23,11 @@ ligação com a Thomson Reuters.
 - [Autor](#autor)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Produtos suportados:
+
+- [x] [Legal One Firm (Novajus)](https://www.thomsonreuters.com.br/pt/juridico/legal-one/firm.html)
+- [ ] [LegalCore Corporate (LegalCore)](https://www.thomsonreuters.com.br/pt/juridico/legal-one/corporate.html) *planejado*
 
 ## Funcionalidades
 
