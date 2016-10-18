@@ -9,6 +9,7 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Produtos suportados:](#produtos-suportados)
+- [Introdução da versão 1.16 em vídeo no YouTube:](#introdu%C3%A7%C3%A3o-da-vers%C3%A3o-116-em-v%C3%ADdeo-no-youtube)
 - [Funcionalidades](#funcionalidades)
   - [Design mais limpo, com cores menos vibrantes:](#design-mais-limpo-com-cores-menos-vibrantes)
   - [Barra de salvar fixa](#barra-de-salvar-fixa)
@@ -28,6 +29,10 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 
 - [x] [Legal One Firm (Novajus)](https://www.thomsonreuters.com.br/pt/juridico/legal-one/firm.html)
 - [ ] [LegalCore Corporate (LegalCore)](https://www.thomsonreuters.com.br/pt/juridico/legal-one/corporate.html) *planejado*
+
+## Introdução da versão 1.16 em vídeo no YouTube:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/WhrOQ2XwRRE&feature/0.jpg)](https://www.youtube.com/watch?v=WhrOQ2XwRRE&feature)
 
 ## Funcionalidades
 
