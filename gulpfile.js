@@ -1,7 +1,8 @@
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var webpack = require('gulp-webpack');
-var webpackConfig = require('./webpack.config.js');
+const gulp = require('gulp');
+const rename = require('gulp-rename');
+const webpack = require('gulp-webpack');
+const webpackConfig = require('./webpack.config.js');
+const zip = require('gulp-zip');
 
 // removes the output configuration from the webpack.config.js file, otherwise it doesn't work.
 webpackConfig.output.path = null;
@@ -38,3 +39,9 @@ gulp.task('build', ['copy_manifest', 'copy_icons', 'copy_jquery', 'copy_vue', 'c
         .pipe(webpack(webpackConfig))
         .pipe(gulp.dest('./dist'));
 });
+
+gulp.task('publish', ['build'], function() {
+    return gulp.src('./dist/*')
+        .pipe(zip('l1pm.zip'))
+        .pipe(gulp.dest('./'))
+})
