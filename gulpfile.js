@@ -44,4 +44,4 @@ gulp.task('publish', ['build'], function() {
     return gulp.src('./dist/*')
         .pipe(zip('l1pm.zip'))
         .pipe(gulp.dest('./'))
-})
+});
