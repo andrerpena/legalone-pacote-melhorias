@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Legal One - Pacote de melhorias (não-oficial)",
   "description": "Pacote de melhorias para o Legal One feito pela comunidade. Esta extensão não possui nenhuma ligação com a Thomson Reuters",
-  "version": "1.19",
+  "version": "1.20",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
@@ -13,6 +13,10 @@
         "*://*.novajus.com.br/*",
         "*://*.localone.com.br/*",
         "*://*.localone.com/*"
+      ],
+      "exclude_matches": [
+        "*://login.novajus.com.br/*",
+        "*://workflow.localone.com.br/*"
       ],
       "js": [
         "./jquery.min.js",
