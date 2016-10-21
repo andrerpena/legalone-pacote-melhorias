@@ -1,6 +1,6 @@
 # LegalOne - Pacote de melhorias (não oficial)
 
-A adiciona funcionalidades e melhora a usabilidade do [Thomson Reuters - Legal One](https://www.thomsonreuters.com.br/pt/juridico/legal-one.html). 
+Extensão do Google Chrome que adiciona funcionalidades e melhora a usabilidade no sistema de gestão jurídica, [Legal One](https://www.thomsonreuters.com.br/pt/juridico/legal-one.html). 
 Esta é uma ferramenta gratuita, de código aberto, desenvolvida pela comunidade e não possui nenhuma 
 ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 
@@ -9,6 +9,7 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Produtos suportados:](#produtos-suportados)
+- [Instalando a extensão no Chrome](#instalando-a-extens%C3%A3o-no-chrome)
 - [Introdução da versão 1.16 em vídeo no YouTube:](#introdu%C3%A7%C3%A3o-da-vers%C3%A3o-116-em-v%C3%ADdeo-no-youtube)
 - [Funcionalidades](#funcionalidades)
   - [Design mais limpo, com cores menos vibrantes:](#design-mais-limpo-com-cores-menos-vibrantes)
@@ -28,7 +29,11 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 ## Produtos suportados:
 
 - [x] [Legal One Firm (Novajus)](https://www.thomsonreuters.com.br/pt/juridico/legal-one/firm.html)
-- [ ] [LegalCore Corporate (LegalCore)](https://www.thomsonreuters.com.br/pt/juridico/legal-one/corporate.html) *planejado*
+- [ ] [Legal One Corporate (LegalCore)](https://www.thomsonreuters.com.br/pt/juridico/legal-one/corporate.html) *planejado*
+
+## Instalando a extensão no Chrome
+
+Instale pelo endereço: [https://chrome.google.com/webstore/detail/legal-one-pacote-de-melho/dilogbnjbadifdhdphnncpfndfocidle](https://chrome.google.com/webstore/detail/legal-one-pacote-de-melho/dilogbnjbadifdhdphnncpfndfocidle)
 
 ## Introdução da versão 1.16 em vídeo no YouTube:
 
