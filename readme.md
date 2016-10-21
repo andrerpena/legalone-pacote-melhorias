@@ -29,7 +29,10 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 
 ## Sobre o Legal One
 
-O Legal One é um sistema online de gestão de jurídica, tanto para escritórios de advocacia quanto para departamentos jurídicos de empresas. O Legal One é produzido principalmente pela Thomson Reuters Brasil.
+O [Legal One](https://www.thomsonreuters.com.br/pt/juridico/legal-one.html) é um sistema online de gestão de jurídica, tanto para escritórios de advocacia quanto para departamentos jurídicos de empresas.
+O Legal One oferece controle de processos, serviços, contratos, agenda, timesheet, financeiro, workflow e outros módulos. 
+
+O Legal One Pacote de melhorias é uma extensão para o Google Chrome que adiciona funcionalidades e melhora a usabilidade.
 
 ## Produtos suportados:
 
