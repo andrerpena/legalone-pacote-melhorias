@@ -8,6 +8,7 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [Sobre o Legal One](#sobre-o-legal-one)
 - [Produtos suportados:](#produtos-suportados)
 - [Instalando a extensão no Chrome](#instalando-a-extens%C3%A3o-no-chrome)
 - [Introdução da versão 1.16 em vídeo no YouTube:](#introdu%C3%A7%C3%A3o-da-vers%C3%A3o-116-em-v%C3%ADdeo-no-youtube)
@@ -25,6 +26,10 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
 - [Autor](#autor)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Sobre o Legal One
+
+O Legal One é um sistema online de gestão de jurídica, tanto para escritórios de advocacia quanto para departamentos jurídicos de empresas. O Legal One é produzido principalmente pela Thomson Reuters Brasil.
 
 ## Produtos suportados:
 
