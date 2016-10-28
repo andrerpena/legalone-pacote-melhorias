@@ -1,6 +1,10 @@
 import setupNavFocus from './jquery-actions/vnav-focus';
 import setupMaximize from './jquery-actions/maximize';
 import setupNavigation from './vue-actions/setupNavigation';
+import pageScriptManager from './page-specific-actions/page-script-manager.js';
+
+// page specific scripts
+import setupLinkPage from './page-specific-actions/link-page';
 
 // Styles
 import "./styles/styles.less";
@@ -11,3 +15,9 @@ setupMaximize();
 
 // Sets up Vue actions
 setupNavigation();
+
+// Sets up page specific scripts
+pageScriptManager.setupScript("/config/TabelasSistema", setupLinkPage);
+pageScriptManager.setupScript("/config/configuracoes", setupLinkPage);
+pageScriptManager.runPageScripts();
+

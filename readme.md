@@ -18,6 +18,7 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
   - [Menu vertical](#menu-vertical)
   - [Favoritos](#favoritos)
   - [Maximizar e desmaximizar](#maximizar-e-desmaximizar)
+  - [Pesquisa dentro das telas de Tabelas de Sistema e Configurações](#pesquisa-dentro-das-telas-de-tabelas-de-sistema-e-configura%C3%A7%C3%B5es)
 - [Sugerindo uma nova funcionalidade](#sugerindo-uma-nova-funcionalidade)
 - [Rodando localmente](#rodando-localmente)
 - [Compatibilidade](#compatibilidade)
@@ -99,6 +100,12 @@ Para maximizar uma tela, clique no ícone no cabeçalho das telas, ou digite `Ct
 Agora a pesquisa de obrigações ocupa a tela inteira:
 
 ![image](https://i.imgur.com/AsUcvdR.png)
+
+### Pesquisa dentro das telas de Tabelas de Sistema e Configurações
+
+Agora as telas de Tabelas de Sistema e Configurações possuem pesquisa
+
+![image](https://i.imgur.com/yxYYjFf.png)
 
 ## Sugerindo uma nova funcionalidade
 
