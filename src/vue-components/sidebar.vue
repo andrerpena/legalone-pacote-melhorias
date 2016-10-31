@@ -35,7 +35,6 @@
 
             menuHelper.mergeFavorites(menuItems, favorites);
             menuHelper.processMenu(menuItems, favorites, "");
-            console.log( window.location.pathname);
             menuHelper.expandToMenu(menuItems, window.location.pathname);
             
             return {
