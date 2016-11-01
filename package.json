@@ -29,7 +29,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
-    "vue": "^2.0.1"
+    "vue": "^2.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
