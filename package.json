@@ -55,6 +55,6 @@
     "vue-loader": "^9.5.1",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.0"
+    "webpack-dev-server": "^1.16.2"
   }
 }
