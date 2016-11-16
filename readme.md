@@ -1,4 +1,4 @@
-# LegalOne - Pacote de melhorias (não oficial)
+# Legal One - Pacote de melhorias (não oficial)
 
 Extensão do Google Chrome que adiciona funcionalidades e melhora a usabilidade no sistema de gestão jurídica, [Legal One](https://www.thomsonreuters.com.br/pt/juridico/legal-one.html). 
 Esta é uma ferramenta gratuita, de código aberto, desenvolvida pela comunidade e não possui nenhuma 
