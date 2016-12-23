@@ -43,7 +43,7 @@
     "babel-runtime": "^6.20.0",
     "chai": "^3.5.0",
     "cross-env": "^3.1.1",
-    "css-loader": "^0.25.0",
+    "css-loader": "^0.26.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "gulp-cli": "^1.2.2",
     "gulp-rename": "^1.2.2",
