@@ -8,7 +8,8 @@ import applyHeaderCircle from './jquery-actions/apply-header-circle';
 import setupLinkPage from './page-specific-actions/link-page';
 
 // Styles
-import "./styles/styles.less";
+import '../node_modules/font-awesome/css/font-awesome.css';
+import "./styles/styles.scss";
 
 // Sets up jQuery actions
 setupNavFocus();

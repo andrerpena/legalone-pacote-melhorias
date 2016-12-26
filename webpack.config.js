@@ -19,7 +19,7 @@ module.exports = {
             {test: /\.css/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
             {test: /\.jpe?g$|\.gif$|\.png$|\.ico$/, loader: 'file?name=[name].[ext]'},
             {test: /\.eot|\.ttf|\.svg|\.woff2?/, loader: 'file?name=[name].[ext]'},
-            {test: /\.less$/, loader:  ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")}
+            {test: /\.scss$/, loader:  ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")}
         ]
     },
 

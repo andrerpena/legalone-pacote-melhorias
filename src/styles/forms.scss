@@ -51,45 +51,45 @@ table.edit-panel tr th,
 
 .header-circle-color-default-blue:before {
   color: rgb(51, 102, 153);
-  .header-circle-base
+  @extend .header-circle-base
 }
 .header-circle-color-light-blue:before {
   color:rgb(57, 163, 210);
-  .header-circle-base
+  @extend  .header-circle-base
   }
 .header-circle-color-gray:before {
  color: rgb(156, 156, 156);
- .header-circle-base
+  @extend .header-circle-base
   }
 .header-circle-color-light-green:before {
  color: rgb(13, 204, 20);
- .header-circle-base
+  @extend .header-circle-base
   }
 .header-circle-color-black:before {
  color: rgb(0,0,0);
- .header-circle-base
+  @extend .header-circle-base
   }
 .header-circle-color-orange:before {
 color:  rgb(249,170,25);
-.header-circle-base
+ @extend .header-circle-base
   }
 .header-circle-color-brown:before {
  color: rgb(164,100,56);
- .header-circle-base
+  @extend .header-circle-base
   }
 .header-circle-color-red:before {
  color: rgb(255,0,0);
- .header-circle-base
+ @extend .header-circle-base
   }
 .header-circle-color-dark-green:before {
  color: rgb(25,115,20);
- .header-circle-base
+  @extend .header-circle-base
   }
 .header-circle-color-purple:before {
 color:  rgb(152,73,193);
-.header-circle-base
+ @extend .header-circle-base
   }
 .header-circle-color-yellow:before {
  color: rgb(255,0,0);
- .header-circle-base
+  @extend .header-circle-base
   }

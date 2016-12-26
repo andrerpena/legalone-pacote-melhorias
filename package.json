@@ -26,8 +26,6 @@
     "gulp": "^3.9.1",
     "gulp-webpack": "^1.5.0",
     "jquery": "^3.1.0",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
     "vue": "^2.1.7",
     "vue-template-compiler": "^2.1.7"
@@ -50,6 +48,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-zip": "^3.2.0",
     "mocha": "^3.2.0",
+    "node-sass": "^4.1.1",
+    "sass-loader": "^4.1.1",
     "underscore": "^1.8.3",
     "vue-hot-reload-api": "^2.0.6",
     "vue-html-loader": "^1.2.3",
