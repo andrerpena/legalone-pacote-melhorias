@@ -1,8 +1,11 @@
+// import jQuery actions
 import setupNavFocus from './jquery-actions/vnav-focus';
-import setupMaximize from './jquery-actions/maximize';
+import applyHeaderCircle from './jquery-actions/apply-header-circle';
+import setupHeaderToolbar from './jquery-actions/document-toolbar';
+import setupFieldSelection from './jquery-actions/jquery-select-fields';
+
 import setupNavigation from './vue-actions/setupNavigation';
 import pageScriptManager from './page-specific-actions/page-script-manager.js';
-import applyHeaderCircle from './jquery-actions/apply-header-circle';
 
 // page specific scripts
 import setupLinkPage from './page-specific-actions/link-page';
@@ -13,8 +16,9 @@ import "./styles/styles.scss";
 
 // Sets up jQuery actions
 setupNavFocus();
-setupMaximize();
 applyHeaderCircle();
+setupHeaderToolbar();
+setupFieldSelection();
 
 // Sets up Vue actions
 setupNavigation();

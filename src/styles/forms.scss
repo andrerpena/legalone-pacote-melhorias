@@ -1,95 +1,211 @@
-.document .footer {
-  position: fixed !important;
-  display: block !important;
-  height: 50px !important;
-  bottom: 0 !important;
-  padding: 10px 10px 0 10px !important;
-  margin-bottom: -10px !important;
-  background-color: #808080 !important;
-  right: 245px !important;
-}
+.document {
+  .footer {
+    position: fixed !important;
+    display: block !important;
+    height: 50px !important;
+    bottom: 0 !important;
+    padding: 10px 10px 0 10px !important;
+    margin-bottom: -10px !important;
+    background-color: #808080 !important;
+    right: 245px !important;
+  }
+  .footer label {
+    color: white !important;
+    font-weight: normal !important;
+  }
+  .document-header {
+    display: flex;
+    justify-content: space-between;
+    div.text {
+      margin-right: 100px;
+    }
+    .button-group {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      box-sizing: border-box;
+      .button {
+        background-color: white;
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.25;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        border-radius: .25rem;
+        position: relative;
+        float: left;
+        margin-bottom: 0;
+        padding: 3px 11px;
+        margin: 0px;
+        font-size: 11px;
+          &:hover {
+          background-color: #eee;
+        }
+      }
+       // first button
+      &>.button:first-child:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+      // buttons in the middle
+      &>.button:not(:first-child):not(:last-child) {
+        border-radius: 0;
+      }
+      // last button
+      &>.button:last-child:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
 
-.document .footer label {
-  color: white !important;
-  font-weight: normal !important;
+    .mesa {
+      .icon-on, .icon-off {
+        width: 11px;
+        height: 13px;
+        background-size: 10px;
+        background-position: center;
+      }
+    }
+    .casos-header-icon {
+      float: right;
+      cursor: pointer;
+      width: 11px;
+      height: 13px;
+      background-size: 11px;
+      background-position: center;
+  }
+   
+  }
 }
 
 // removing bold from the forms
 .edit-panel-responsive .header,
 .label-format-editpanel,
 table.edit-panel tr th,
-.legalone-formpanel-wrapper .legalone-panel-content .row .col .label label
-{
+.legalone-formpanel-wrapper .legalone-panel-content .row .col .label label {
   font-weight: normal !important;
 }
 
 // removing colored details
-.color-default-blue > div div.value, .color-default-blue > div div.value a,
-.color-light-blue > div div.value, .color-light-blue > div div.value a,
-.color-gray > div div.value, .color-gray > div div.value a,
-.color-light-green > div div.value, .color-light-green > div div.value a,
-.color-black > div div.value, .color-black > div div.value a,
-.color-orange > div div.value, .color-orange > div div.value a,
-.color-brown > div div.value, .color-brown > div div.value a,
-.color-red > div div.value, .color-red > div div.value a,
-.color-dark-green > div div.value, .color-dark-green > div div.value a,
-.color-purple > div div.value, .color-purple > div div.value a,
-.color-yellow > div div.value, .color-yellow > div div.value a
-{
-    color: inherit !important;
+.color-default-blue > div div.value,
+.color-default-blue > div div.value a,
+.color-light-blue > div div.value,
+.color-light-blue > div div.value a,
+.color-gray > div div.value,
+.color-gray > div div.value a,
+.color-light-green > div div.value,
+.color-light-green > div div.value a,
+.color-black > div div.value,
+.color-black > div div.value a,
+.color-orange > div div.value,
+.color-orange > div div.value a,
+.color-brown > div div.value,
+.color-brown > div div.value a,
+.color-red > div div.value,
+.color-red > div div.value a,
+.color-dark-green > div div.value,
+.color-dark-green > div div.value a,
+.color-purple > div div.value,
+.color-purple > div div.value a,
+.color-yellow > div div.value,
+.color-yellow > div div.value a {
+  color: inherit !important;
 }
 
 // apply the circle header
 .header-circle-base {
-    content: '\25CF';
-    font-size: 24px;
-    padding-right: 6px;
-    position: relative;
-    top: 1px;
-    color: attr(data-circle-color)
+  content: '\25CF';
+  font-size: 24px;
+  padding-right: 6px;
+  position: relative;
+  top: 1px;
+  color: attr(data-circle-color)
 }
 
 .header-circle-color-default-blue:before {
   color: rgb(51, 102, 153);
   @extend .header-circle-base
 }
+
 .header-circle-color-light-blue:before {
-  color:rgb(57, 163, 210);
-  @extend  .header-circle-base
-  }
+  color: rgb(57, 163, 210);
+  @extend .header-circle-base
+}
+
 .header-circle-color-gray:before {
- color: rgb(156, 156, 156);
+  color: rgb(156, 156, 156);
   @extend .header-circle-base
-  }
+}
+
 .header-circle-color-light-green:before {
- color: rgb(13, 204, 20);
+  color: rgb(13, 204, 20);
   @extend .header-circle-base
-  }
+}
+
 .header-circle-color-black:before {
- color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
   @extend .header-circle-base
-  }
+}
+
 .header-circle-color-orange:before {
-color:  rgb(249,170,25);
- @extend .header-circle-base
-  }
+  color: rgb(249, 170, 25);
+  @extend .header-circle-base
+}
+
 .header-circle-color-brown:before {
- color: rgb(164,100,56);
+  color: rgb(164, 100, 56);
   @extend .header-circle-base
-  }
+}
+
 .header-circle-color-red:before {
- color: rgb(255,0,0);
- @extend .header-circle-base
-  }
+  color: rgb(255, 0, 0);
+  @extend .header-circle-base
+}
+
 .header-circle-color-dark-green:before {
- color: rgb(25,115,20);
+  color: rgb(25, 115, 20);
   @extend .header-circle-base
-  }
+}
+
 .header-circle-color-purple:before {
-color:  rgb(152,73,193);
- @extend .header-circle-base
-  }
-.header-circle-color-yellow:before {
- color: rgb(255,0,0);
+  color: rgb(152, 73, 193);
   @extend .header-circle-base
+}
+
+.header-circle-color-yellow:before {
+  color: rgb(255, 0, 0);
+  @extend .header-circle-base
+}
+
+.edit-panel-responsive-wrapper {
+  position: relative;
+}
+
+.edit-panel-responsive-wrapper div[class*='span'] {
+  border: 1px dashed gray;
+}
+
+.edit-panel-edit-button {
+  width: 16px;
+  height: 16px;
+  background-color: #f7f7f7;
+  position: absolute;
+  top: 0;
+  right: -16px;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  border-color: #eee;
+  i.fa {
+    color: #ccc8c8;
+    margin-top: 2px;
+    margin-left: 2px;
   }
+}
