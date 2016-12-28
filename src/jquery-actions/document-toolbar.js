@@ -5,11 +5,11 @@ var maximizedHeader = false;
 /**
  * Minimizes the document
  */
-function toggleMaximize($documentHeader) {
+function toggleMaximize() {
 
     if (!maximizedHeader) {
         // maximize
-        $documentHeader.css({
+        $(".document").css({
             position: "absolute",
             "box-sizing": "border-box",
             top: 0,
@@ -17,17 +17,19 @@ function toggleMaximize($documentHeader) {
             right: 0,
             "min-height": "1080px"
         });
+        maximizedHeader = true;
     }
     else {
         // minimize
-        $documentHeader.css({
+        $(".document").css({
             position: "static",
             "box-sizing": "border-box",
             top: 0,
             left: 0,
             right: 0,
-            "min-height": "1080px"
+            "min-height": "1080px",
         });
+        maximizedHeader = false;
     }
 
 }
@@ -39,8 +41,12 @@ function setupCasosButton($documentHeader, $buttonGroup) {
 
 // setup workspaces
 function setupWorkspacesButton($documentHeader, $buttonGroup) {
-    $("#mesa_trabalho_icon_wrapper").detach().addClass("button").appendTo($buttonGroup);
-    $("#mesa_trabalho_icon_wrapper").remove();
+    if($("#estrela").length) {
+        $("#mesa_trabalho_icon_wrapper").detach().addClass("button").appendTo($buttonGroup);
+    } 
+    else {
+        $("#mesa_trabalho_icon_wrapper").remove();
+    }
 }
 
 /**
@@ -58,10 +64,7 @@ function setupMaximizeButton($documentHeader, $buttonGroup) {
 
     $(document).keydown(function (e) {
         if (e.ctrlKey && e.keyCode == 77) {
-            toggleMaximize(documentHeader);
-
-            if (e.keyCode == 27 && maximizedHeader)
-                minimize();
+            toggleMaximize();
         }
     });
 }
@@ -74,7 +77,7 @@ export default function setupHeaderToolbar() {
         $("div.clear", $documentHeader).remove();
         // handling 
         var $buttonGroup = $("<div />").addClass("button-group");
-        $buttonGroup.appendTo($documentHeader);
+        $buttonGroup.prependTo($documentHeader);
 
         setupCasosButton($documentHeader, $buttonGroup);
         setupWorkspacesButton($documentHeader, $buttonGroup);

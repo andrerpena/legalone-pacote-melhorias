@@ -14,8 +14,6 @@
     font-weight: normal !important;
   }
   .document-header {
-    display: flex;
-    justify-content: space-between;
     div.text {
       margin-right: 100px;
     }
@@ -24,6 +22,7 @@
       display: inline-block;
       vertical-align: middle;
       box-sizing: border-box;
+      float: right;
       .button {
         background-color: white;
         display: inline-block;
@@ -187,25 +186,4 @@ table.edit-panel tr th,
 
 .edit-panel-responsive-wrapper {
   position: relative;
-}
-
-.edit-panel-responsive-wrapper div[class*='span'] {
-  border: 1px dashed gray;
-}
-
-.edit-panel-edit-button {
-  width: 16px;
-  height: 16px;
-  background-color: #f7f7f7;
-  position: absolute;
-  top: 0;
-  right: -16px;
-  border-width: 1px 1px 1px 0;
-  border-style: solid;
-  border-color: #eee;
-  i.fa {
-    color: #ccc8c8;
-    margin-top: 2px;
-    margin-left: 2px;
-  }
 }
