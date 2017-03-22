@@ -168,7 +168,7 @@ Contribuições são bem vindas. É só fazer um pull-request :).
 
 ## Autor
 
-Feito com :heart: por André Pena.
+Feito com :heart: por André Pena. Meu website: http://andrerpena.me
 
 Outros contribuidores:
 
