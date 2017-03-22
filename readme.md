@@ -19,6 +19,7 @@ ligação com a [Thomson Reuters](www.thomsonreuters.com.br).
   - [Favoritos](#favoritos)
   - [Maximizar e desmaximizar](#maximizar-e-desmaximizar)
   - [Pesquisa dentro das telas de Tabelas de Sistema e Configurações](#pesquisa-dentro-das-telas-de-tabelas-de-sistema-e-configura%C3%A7%C3%B5es)
+  - [Fichas menos coloridas](#fichas-menos-coloridas)
 - [Sugerindo uma nova funcionalidade](#sugerindo-uma-nova-funcionalidade)
 - [Rodando localmente](#rodando-localmente)
 - [Compatibilidade](#compatibilidade)
@@ -106,6 +107,13 @@ Agora a pesquisa de obrigações ocupa a tela inteira:
 Agora as telas de Tabelas de Sistema e Configurações possuem pesquisa
 
 ![image](https://i.imgur.com/yxYYjFf.png)
+
+### Fichas menos coloridas
+
+Agora as fichas não variam a cor de acordo com o status do objeto
+
+![image](https://i.imgur.com/IxzZFJs.png)
+
 
 ## Sugerindo uma nova funcionalidade
 
